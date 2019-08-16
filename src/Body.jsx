@@ -1,8 +1,20 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./main.css";
+import { connect } from "react-redux";
+import store from "./store.js";
 
-class Body extends Component {
+class UnconnectedBody extends Component {
+  handleCartButton = () => {
+    let item = {
+      username: this.props.username,
+      ...this.props.item
+    };
+    this.props.dispatch({
+      type: "additemcart",
+      item: item
+    });
+  };
   render = () => {
     console.log(this.props);
     return (
@@ -20,15 +32,15 @@ class Body extends Component {
             <Link className="button1" to={"/profile"}>
               More Details
             </Link>
-            <p>
-              <Link className="button2" to={"/AddtoCart" + this.props.cart}>
-                Add to cart
-              </Link>
-            </p>
+            <button className="button" onClick={this.handleCartButton}>
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
     );
   };
 }
+
+let Body = connect()(UnconnectedBody);
 export default Body;

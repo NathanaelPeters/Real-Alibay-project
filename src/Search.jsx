@@ -57,72 +57,85 @@ class UnconnectedSearch extends Component {
         </div>
       </div>
     );
-
     return (
-      <div>
+      <div className="searchbox" height="100px">
         <div>
-          Search query
-          <input
-            type="text"
-            onChange={this.handleQuery}
-            value={this.props.query}
-          />
-        </div>
-        <div>
-          Minimum price
-          <input
-            type="text"
-            onChange={this.handleMinimumPrice}
-            value={this.props.minPrice.toString()}
-          />
-        </div>
-        <div>
-          Maximum price
-          <input
-            type="text"
-            onChange={this.handleMaximumPrice}
-            value={this.props.maxPrice.toString()}
-          />
-        </div>
-        <div>
-          <div>
+          <p>
+            Search query
             <input
-              type="radio"
-              name="group"
-              value="men"
-              onChange={this.handleSelectGroup}
-            />{" "}
-            Men's
-            {this.props.group === "men" ? submenu : null}
-          </div>
-          <div>
-            <input
-              type="radio"
-              name="group"
-              value="women"
-              onChange={this.handleSelectGroup}
-            />{" "}
-            Women's
-            {this.props.group === "women" ? submenu : null}
-          </div>
-          <div>
-            <input
-              type="radio"
-              name="group"
-              value="children"
-              onChange={this.handleSelectGroup}
+              type="text"
+              onChange={this.handleQuery}
+              value={this.props.query}
             />
-            Children's
-            {this.props.group === "children" ? submenu : null}
+          </p>
+        </div>
+        <p>
+          <div>
+            Minimum price
+            <input
+              type="text"
+              onChange={this.handleMinimumPrice}
+              value={this.props.minPrice.toString()}
+            />
+          </div>
+        </p>
+        <p>
+          <div>
+            Maximum price
+            <input
+              type="text"
+              onChange={this.handleMaximumPrice}
+              value={this.props.maxPrice.toString()}
+            />
+          </div>
+        </p>
+        <div>
+          <p>
+            <div>
+              <input
+                type="radio"
+                name="group"
+                value="men"
+                onChange={this.handleSelectGroup}
+              />{" "}
+              Men's
+              {this.props.group === "men" ? submenu : null}
+            </div>
+          </p>
+          <div>
+            <p>
+              <input
+                type="radio"
+                name="group"
+                value="women"
+                onChange={this.handleSelectGroup}
+              />{" "}
+              Women's
+              {this.props.group === "women" ? submenu : null}
+            </p>
           </div>
           <div>
-            <input
-              type="radio"
-              name="group"
-              value=""
-              onChange={this.handleSelectGroup}
-            />
-            All
+            <p>
+              <input
+                type="radio"
+                name="group"
+                value="children"
+                onChange={this.handleSelectGroup}
+              />
+              Children's
+              {this.props.group === "children" ? submenu : null}
+            </p>
+          </div>
+          <div>
+            <p>
+              <input
+                type="radio"
+                name="group"
+                value=""
+                onChange={this.handleSelectGroup}
+              />
+              All
+            </p>
           </div>
         </div>
       </div>

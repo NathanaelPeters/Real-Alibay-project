@@ -71,6 +71,10 @@ app.post("/login", upload.none(), (req, res) => {
 app.post("/logout", upload.none(), (req, res) => {
   res.send(JSON.stringify({ success: false }));
 });
+app.post("/addCart", upload.none(), (req, res) => {
+  let sessionId = req.cookies.sid;
+  let username = sessions[sessionId];
+});
 
 app.post("/addItem", upload.single("thepic"), (req, res) => {
   let sessionId = req.cookies.sid;

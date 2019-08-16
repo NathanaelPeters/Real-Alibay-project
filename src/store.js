@@ -24,6 +24,9 @@ let reducer = (state, action) => {
   if (action.type === "select-group") {
     return { ...state, group: action.value, categories: [] };
   }
+  if (action.type === "additemcart") {
+    return { ...state, cart: state.cart.concat(action.item) };
+  }
   if (action.type === "select-category") {
     // if should be included, add to the array if not there
     if (action.include && !state.categories.includes(action.category)) {
@@ -51,7 +54,8 @@ const store = createStore(
     min: 0,
     max: 100000,
     categories: [],
-    group: ""
+    group: "",
+    cart: []
   },
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

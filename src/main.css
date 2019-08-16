@@ -220,3 +220,11 @@ body {
 .card:hover .button {
   opacity: 0.35;
 }
+.searchbox {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  position: absolute;
+  height: 200px;
+  margin-left: 20px;
+  margin-top: 50px;
+}

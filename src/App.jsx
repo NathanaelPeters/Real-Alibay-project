@@ -26,12 +26,19 @@ class UnconnectedApp extends Component {
       loggedIn: false
     };
   }
-  renderAddtoCart = routerData => {
-    let cartID = routerData.match.params.cid;
-    let candidates = initialCart.filter(cart => {
-      return cart.id === cartID;
-    });
-    return <Mycart cart={candidates[0]} />;
+  renderCart = () => {
+    return (
+      <div>
+        {this.props.cart.map(item => (
+          <Mycart
+            cost={item.price}
+            profileID={item.profileID}
+            imageLocation={item.image}
+            description={item.description}
+          />
+        ))}
+      </div>
+    );
   };
   renderAllItems = () => {
     return (
@@ -42,6 +49,8 @@ class UnconnectedApp extends Component {
             profileID={item.profileID}
             imageLocation={item.image}
             description={item.description}
+            item={item}
+            username={this.state.username}
             // cartTotal={cart.total}
             // cartID={cart.id}
             // cartItem={cart.item}
@@ -185,9 +194,7 @@ class UnconnectedApp extends Component {
           path="/AddItem"
           render={() => <AddItem username={this.state.username} />}
         />
-        <Route
-          path="/Mycart"
-          render={() => <Mycart username={this.state.username} />}
+        <Route exact={true} path="/Mycart" render={this.renderCart} />
         />
         <Route
           path="/Orders"
@@ -199,13 +206,14 @@ class UnconnectedApp extends Component {
           path="/AddtoCart/:cid"
           render={this.renderAddtoCart}
         />
+        <Search />
       </BrowserRouter>
     );
   };
 }
 let mapStateToProps = state => {
   console.log(state);
-  return { login: state.loggedIn, items: state.items };
+  return { login: state.loggedIn, items: state.items, cart: state.cart };
 };
 let App = connect(mapStateToProps)(UnconnectedApp);
 export default App;

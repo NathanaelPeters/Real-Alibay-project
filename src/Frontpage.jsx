@@ -8,7 +8,6 @@ class Frontpage extends Component {
     return (
       <div>
         <Header username={this.props.username} />
-        <Search />
       </div>
     );
   };
