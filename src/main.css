@@ -1,0 +1,222 @@
+body {
+  background-color: #bbb;
+  margin: 0;
+}
+
+.headerforms {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4caf50;
+  width: 100px;
+  border: 10;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  left: 10px;
+  top: 11px;
+  background-position: -10px -340px;
+  margin-left: 15px;
+}
+.additemform {
+  display: block;
+}
+.additemoption {
+  display: inline;
+}
+.profile {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.descbox {
+  height: 100px;
+  width: 300px;
+}
+.additem h1,
+h2 {
+  font-family: "Roboto", sans-serif;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+}
+
+.logo {
+  height: 1000px;
+  width: 1000px;
+}
+
+.overlay {
+  z-index: 50;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup {
+  z-index: 100;
+  position: fixed;
+  top: 200px;
+  left: 200px;
+  right: 200px;
+  background-color: white;
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4caf50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,
+.form button:active,
+.form button:focus {
+  background: #d6252c;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+  cursor: pointer;
+  color: blue;
+}
+.form .message:hover {
+  text-decoration: underline;
+}
+.form .message a {
+  color: #f4faf4;
+  text-decoration: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.container:before,
+.container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+.container .info span .fa {
+  color: #d6252c;
+}
+body {
+  background: #d6252c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #d6252c, #8dc26f);
+  background: -moz-linear-gradient(right, #d6252c, #8dc26f);
+  background: -o-linear-gradient(right, #d6252c, #8dc26f);
+  background: linear-gradient(to left, #d6252c, #8dc26f);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+  display: inline-block;
+  position: relative;
+  margin: 5%;
+  float: none;
+  width: 20%;
+  background-color: lightgrey;
+  font-size: 14pt;
+  font-style: initial;
+  text-align: center;
+  left: 20px;
+}
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+.card {
+  border-radius: 25px;
+  background: -webkit-linear-gradient(right, #8dc26f, #d6252c);
+  background: -moz-linear-gradient(right, #8dc26f, #d6252c);
+  background: -o-linear-gradient(right, #8dc26f, #d6252c);
+  background: linear-gradient(to left, #8dc26f, #d6252c);
+  padding: 20px;
+  width: 200px;
+  height: 180px;
+  transition: transform 1.5s;
+  float: right;
+}
+.button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: white;
+  border-radius: 25px;
+}
+.card:hover .button {
+  opacity: 0.35;
+}
