@@ -1,6 +1,5 @@
 let initialItems = [
   {
-<<<<<<< HEAD
     description: "Comfortable sweatpants",
     price: 10,
     image: "/grey.png",
@@ -9,12 +8,10 @@ let initialItems = [
     group: "men",
     category: "bottom",
     seller: "Jack Frost",
-=======
-    id: "asewq", 
+    id: "asewq",
     description: "great sweats",
     price: "10$",
     image: "/grey.png",
->>>>>>> 65c22a0619549e59dccad4e520c1ef22c801635a
     sellerId: "ewio"
   },
   {

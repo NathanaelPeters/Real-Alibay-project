@@ -12,11 +12,8 @@ import Mycart from "./Mycart.jsx";
 import Body from "./Body.jsx";
 import { initialItems, initialProfile, initialCart } from "./Data.js";
 import Search from "./Search.jsx";
-<<<<<<< HEAD
-=======
 import SearchResults from "./SearchResults.jsx";
 import SellerProfile from "./SellerProfile.jsx";
->>>>>>> 23c9739178621b490d90085c385e12fb281df6f6
 import { Pay } from "./Payment.jsx";
 import Details from "./details.jsx";
 import LoginSignup from "./LoginSignupForm.jsx";
@@ -62,14 +59,8 @@ class UnconnectedApp extends Component {
   renderCart = () => {
     return (
       <div>
-<<<<<<< HEAD
-        <Search />
-        {this.props.items.map(item => (
-          <Body
-=======
         {this.props.cart.map(item => (
           <Mycart
->>>>>>> 23c9739178621b490d90085c385e12fb281df6f6
             cost={item.price}
             profileID={item.profileID}
             itemID={item.itemID}
@@ -82,61 +73,6 @@ class UnconnectedApp extends Component {
   };
 
   render = () => {
-<<<<<<< HEAD
-=======
-    console.log(this.props.sellers);
-    if (this.props.login === false) {
-      if (this.state.signuptoggle === false) {
-        return (
-          <div className="login-page">
-            <div className="form">
-              <form className="register-form">
-                <input
-                  type="text"
-                  onChange={this.usernameSet}
-                  placeholder="Create username"
-                />
-                <input
-                  type="text"
-                  onChange={this.passwordSet}
-                  placeholder="Create password"
-                />
-                <button onClick={this.submitsignupHandler}>create</button>
-                <p>Already registered?</p>
-                <p className="message" onClick={this.signuptoggle}>
-                  Sign in
-                </p>
-              </form>{" "}
-            </div>{" "}
-          </div>
-        );
-      }
-      return (
-        <div className="login-page">
-          <div className="form">
-            <form className="login-form">
-              <input
-                type="text"
-                onChange={this.usernameChange}
-                placeholder="username"
-              />
-              <input
-                type="text"
-                onChange={this.passwordChange}
-                placeholder="password"
-              />
-              <button onClick={this.submitloginHandler}>login</button>
-              <p>Not registered? </p>
-              <p className="message" onClick={this.signuptoggle}>
-                Create an account{" "}
-              </p>
-            </form>
-          </div>
-        </div>
-      );
-    }
-
->>>>>>> 23c9739178621b490d90085c385e12fb281df6f6
     return (
       <BrowserRouter>
         <Frontpage username={this.state.username} />
@@ -153,21 +89,6 @@ class UnconnectedApp extends Component {
           path="/Orders"
           render={() => <Orders username={this.state.username} />}
         />
-<<<<<<< HEAD
-        <Route exact={true} path="/" render={this.renderAllItems} />
-        <Route exact={true} path="/Mycart" render={this.renderCart} />
-        <Route
-          exact={true}
-          path="/Details/:id"
-          render={routerData => <Details itemID={routerData.match.params.id} />}
-        />
-        <Route
-          exact={true}
-          path="/Payment"
-          render={() => <Pay username={this.state.username} />}
-        />
-        <Route path="/LoginSignup" render={() => <LoginSignup />} />
-=======
         <Route
           path="/SellerProfile/:id"
           render={routerData => (
@@ -189,7 +110,6 @@ class UnconnectedApp extends Component {
           path="/Payment"
           redner={() => <Pay username={this.state.username} />}
         />
->>>>>>> 23c9739178621b490d90085c385e12fb281df6f6
       </BrowserRouter>
     );
   };
