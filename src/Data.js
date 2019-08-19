@@ -1,6 +1,6 @@
 let initialItems = [
   {
-    description: "Comfortable sweatpants",
+    description: "great sweats",
     price: "10$",
     image: "/grey.png",
     id: "asewq",

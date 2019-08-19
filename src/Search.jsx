@@ -30,7 +30,7 @@ class UnconnectedSearch extends Component {
   };
   render = () => {
     let submenu = (
-      <div>
+      <div className="checkbox">
         <div>
           <input
             type="checkbox"

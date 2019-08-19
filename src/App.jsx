@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import Frontpage from "./Frontpage.jsx";
-import {
-  BrowserRouter,
-  Route
-} from "react-router-dom/cjs/react-router-dom.min";
+import { BrowserRouter, Route } from "react-router-dom/cjs/react-router-dom.min";
 import { connect } from "react-redux";
 import AddItem from "./AddItem.jsx";
 import Profile from "./Profile.jsx";
@@ -12,6 +9,7 @@ import Mycart from "./Mycart.jsx";
 import Body from "./Body.jsx";
 import { initialItems, initialProfile, initialCart } from "./Data.js";
 import Search from "./Search.jsx";
+import { Pay } from './Payment.jsx';
 
 class UnconnectedApp extends Component {
   constructor() {
@@ -43,6 +41,7 @@ class UnconnectedApp extends Component {
   renderAllItems = () => {
     return (
       <div>
+                <Search />
         {this.props.items.map(item => (
           <Body
             cost={item.price}
@@ -195,7 +194,6 @@ class UnconnectedApp extends Component {
           render={() => <AddItem username={this.state.username} />}
         />
         <Route exact={true} path="/Mycart" render={this.renderCart} />
-        />
         <Route
           path="/Orders"
           render={() => <Orders username={this.state.username} />}
@@ -206,7 +204,7 @@ class UnconnectedApp extends Component {
           path="/AddtoCart/:cid"
           render={this.renderAddtoCart}
         />
-        <Search />
+        <Route exact={true} path="/Payment" redner={() => <Pay />} />
       </BrowserRouter>
     );
   };

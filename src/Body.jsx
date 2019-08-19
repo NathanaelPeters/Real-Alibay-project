@@ -32,9 +32,11 @@ class UnconnectedBody extends Component {
             <Link className="button1" to={"/profile"}>
               More Details
             </Link>
-            <button className="button" onClick={this.handleCartButton}>
+            <p className="line">
+            <button className="button2" onClick={this.handleCartButton}>
               Add to cart
             </button>
+          </p>
           </div>
         </div>
       </div>
