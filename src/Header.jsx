@@ -5,7 +5,7 @@ import Profile from "./Profile.jsx";
 import Mycart from "./Mycart.jsx";
 import Orders from "./Orders.jsx";
 import AddItem from "./AddItem.jsx";
-import LoginSignup from "./LoginSignupForm.jsx";
+import LoginSignup from "./LoginSignupForm.jsx"
 import Search from "./Search.jsx";
 
 class UnconnectedHeader extends Component {

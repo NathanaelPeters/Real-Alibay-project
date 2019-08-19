@@ -49,14 +49,14 @@ class UnconnectedSearchResults extends Component {
                 <div>{item.description}</div>
                 <div>{item.cost}</div>
                 <div className="button">
-                  <Link className="button1" to={"/profile"}>
+                  <Link className="button1" to={"/details" + item.id}>
                     More Details
                   </Link>
                   <button className="button" onClick={this.handleCartButton}>
                     Add to cart
                   </button>
                   <Link
-                    className="button1"
+                    className="button6"
                     to={"/SellerProfile/" + item.sellerId}
                   >
                     See the Seller!

@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 import { Pay } from "./payment.jsx";
 class Mycart extends Component {
   render() {
-    removeItem = () => {
-      return;
-    };
     return (
       <div>
         <div>Your cart</div>
@@ -47,3 +44,4 @@ class Mycart extends Component {
   }
 }
 export default Mycart;
+

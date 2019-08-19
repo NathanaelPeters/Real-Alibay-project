@@ -75,7 +75,7 @@ let initialProfile = [
     id: "ewio",
     name: "Jack Frost",
     rating: "5 stars",
-    image: "/jackfrost.jpg"
+    image: "/jackfrost.jpeg"
   },
   {
     id: "xcvb",
