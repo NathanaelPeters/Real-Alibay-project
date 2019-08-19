@@ -14,6 +14,8 @@ import { initialItems, initialProfile, initialCart } from "./Data.js";
 import Search from "./Search.jsx";
 import SearchResults from "./SearchResults.jsx";
 import SellerProfile from "./SellerProfile.jsx";
+import { Pay } from "./Payment.jsx";
+import Details from "./details.jsx";
 
 class UnconnectedApp extends Component {
   constructor() {
@@ -36,6 +38,23 @@ class UnconnectedApp extends Component {
       </div>
     );
   };
+  renderDetails = routerData => {
+    let itemID = routerData.match.params.id;
+    return (
+      <div>
+        {this.props.items.map(item => {
+          if (itemID === item.id) {
+            <Details
+              cost={item.price}
+              itemID={item.id}
+              imageLocation={item.image}
+              description={item.description}
+            />;
+          }
+        })}
+      </div>
+    );
+  };
   renderCart = () => {
     return (
       <div>
@@ -43,6 +62,7 @@ class UnconnectedApp extends Component {
           <Mycart
             cost={item.price}
             profileID={item.profileID}
+            itemID={item.itemID}
             imageLocation={item.image}
             description={item.description}
           />
@@ -174,6 +194,7 @@ class UnconnectedApp extends Component {
         </div>
       );
     }
+
     return (
       <BrowserRouter>
         <Frontpage username={this.state.username} />{" "}
@@ -186,7 +207,6 @@ class UnconnectedApp extends Component {
           render={() => <AddItem username={this.state.username} />}
         />
         <Route exact={true} path="/Mycart" render={this.renderCart} />
-        />
         <Route
           path="/Orders"
           render={() => <Orders username={this.state.username} />}
@@ -199,6 +219,19 @@ class UnconnectedApp extends Component {
         />
         <Route exact={true} path="/myCart" render={this.renderCart} />
         <Route exact={true} path="/" render={this.searchResults} />
+        exact={true}
+        path="/Mycart" render={this.renderCart}
+        />
+        <Route
+          exact={true}
+          path="/Details/:id"
+          render={routerData => <Details itemID={routerData.match.params.id} />}
+        />
+        <Route
+          exact={true}
+          path="/Payment"
+          redner={() => <Pay username={this.state.username} />}
+        />
       </BrowserRouter>
     );
   };

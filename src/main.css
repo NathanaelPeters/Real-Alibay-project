@@ -227,6 +227,7 @@ body {
   padding: 8px;
 }
 .button1 {
+<<<<<<< HEAD
   text-decoration: none;
   width: 90px;
   right: 20px;
@@ -237,6 +238,18 @@ body {
   color: white;
   font-weight: bold;
   font-size: 14px;
+=======
+text-decoration: none;
+width: 90px;
+right: 20px;
+height: 15px;
+background: grey;
+padding: 3px;
+border-radius: 10px;
+color: white;
+font-weight: bold;
+font-size: 14px
+>>>>>>> 65c22a0619549e59dccad4e520c1ef22c801635a
 }
 .cart {
   display: absolute;
@@ -245,6 +258,7 @@ body {
   border: 5px solid black;
   padding: 45px;
   margin: auto;
+<<<<<<< HEAD
 }
 .remove {
   color: #494949 !important;
@@ -269,4 +283,39 @@ body {
   text-align: right;
   top: 100px;
   margin: auto;
+=======
+>>>>>>> 65c22a0619549e59dccad4e520c1ef22c801635a
 }
+.remove {
+   color: #494949 !important;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 5px;
+    border: 4px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+  }
+  .remove:hover {
+    color: #ffffff !important;
+    background: #f6b93b;
+    border-color: #f6b93b !important;
+    transition: all 0.4s ease 0s;
+    }
+    .description {
+      text-align: center
+    }
+    .price {
+      display: absolute;
+      text-align: right;
+      top: 100px;
+      margin: auto
+    }
+    .details {
+      display: absolute;
+      left: 100px;
+      width: 600px;
+      border: 5px solid black;
+      padding: 45px;
+      margin: auto;
+    }
+

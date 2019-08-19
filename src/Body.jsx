@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./main.css";
 import { connect } from "react-redux";
 import store from "./store.js";
+import { Details } from "./details.jsx"
 
 class UnconnectedBody extends Component {
   handleQuery = evt => {
@@ -55,12 +56,14 @@ class UnconnectedBody extends Component {
           <div>{this.props.description}</div>
           <div>{this.props.cost}</div>
           <div className="button">
-            <Link className="button1" to={"/profile"}>
+            <Link className="button1" to={"/Details/" + this.props.item.id}>
               More Details
             </Link>
-            <button className="button" onClick={this.handleCartButton}>
+            <p className="line">
+            <button className="button2" onClick={this.handleCartButton}>
               Add to cart
             </button>
+          </p>
           </div>
         </div>
       </div>
