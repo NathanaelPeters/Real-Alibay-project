@@ -270,8 +270,12 @@ font-size: 14px
       top: 100px;
       margin: auto
     }
+    .details {
+      display: absolute;
+      left: 100px;
+      width: 600px;
+      border: 5px solid black;
+      padding: 45px;
+      margin: auto;
+    }
 
-<<<<<<< HEAD
-  
-=======
->>>>>>> 278cbf32f6a23c9cdb7352e9a672002311e1546d

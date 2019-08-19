@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import "./main.css";
-import { items } from "./Data.js";
-class Details extends Component {
+import { initialItems } from "./Data.js";
+import { connect } from 'react-redux'
+class UnconnectedDetails extends Component {
   render() {
+    let result = this.props.items.filter(id =>{
+      return id.id === this.props.itemID
+    })
     return (
       <div>
         <div>Details</div>
@@ -10,14 +14,14 @@ class Details extends Component {
           <div className="detailproduct">
           <img className="image"
             height="82px"
-            width="61 px"
-            src={this.props.image}
+            width="61px"
+            src={result[0].image}
           />
           <div>
-            <div className="descriptiond">{this.props.description}</div>
-            <div className="priced">{this.props.cost}</div>
-            <div className="quantityd">{this.props.quantity}</div>
-            <button className="Add" onClick={this.props.removeItem}>Add to Cart</button>
+            <div className="descriptiond">{result[0].description}</div>
+            <div className="priced">{"$" + result[0].price}</div>
+            {/* <div className="quantityd">{this.props.quantity}</div> */}
+            <button className="Add" onClick={this.mycart}>Add to Cart</button>
             <select className="dropdown"> 
     <option>1</option>  
     <option>2</option>  
@@ -35,8 +39,11 @@ class Details extends Component {
     );
   }
 }
+let mapStateToProps = st => {
+  return {
+    items: st.items
+  }
+}
+
+let Details = connect(mapStateToProps)(UnconnectedDetails)
 export default Details;
-
-
-
-

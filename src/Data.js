@@ -1,9 +1,9 @@
 let initialItems = [
   {
+    id: "asewq", 
     description: "great sweats",
     price: "10$",
     image: "/grey.png",
-    id: "asewq",
     sellerId: "ewio"
   },
   {

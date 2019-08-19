@@ -30,7 +30,7 @@ class UnconnectedBody extends Component {
           <div>{this.props.description}</div>
           <div>{this.props.cost}</div>
           <div className="button">
-            <Link className="button1" to={"/Details"}>
+            <Link className="button1" to={"/Details/" + this.props.item.id}>
               More Details
             </Link>
             <p className="line">

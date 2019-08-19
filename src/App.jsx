@@ -28,10 +28,10 @@ class UnconnectedApp extends Component {
   renderCart = () => {
     return (
       <div>
-        {this.props.details.map(item => (
+        {this.props.cart.map(item => (
           <Mycart
             cost={item.price}
-            itemId={item.itemId}
+            profileID={item.profileID}
             imageLocation={item.image}
             description={item.description}
           />
@@ -39,17 +39,21 @@ class UnconnectedApp extends Component {
       </div>
     );
   };
-  renderDetails = () => {
+  renderDetails = routerData => {
+    let itemID = routerData.match.params.id;
     return (
       <div>
-        {this.props.cart.map(item => (
+        {this.props.items.map(item => {
+          if (itemID === item.id) {
           <Details
             cost={item.price}
-            profileID={item.profileID}
+            itemID={item.id}
             imageLocation={item.image}
             description={item.description}
           />
-        ))}
+        }
+        })
+        }
       </div>
     );
   };
@@ -61,6 +65,7 @@ class UnconnectedApp extends Component {
           <Body
             cost={item.price}
             profileID={item.profileID}
+            itemID={item.itemID}
             imageLocation={item.image}
             description={item.description}
             item={item}
@@ -197,6 +202,7 @@ class UnconnectedApp extends Component {
         </div>
       );
     }
+    
     return (
       <BrowserRouter>
         <Frontpage username={this.state.username} />{" "}
@@ -216,8 +222,14 @@ class UnconnectedApp extends Component {
         <Route exact={true} path="/" render={this.renderAllItems} />
         <Route
           exact={true}
-          path="/AddtoCart/:cid"
-          render={this.renderAddtoCart}
+          path="/Mycart"
+          render={this.renderCart}
+        />
+        <Route
+          exact={true}
+          path="/Details/:id"
+          render={routerData => (<Details itemID={routerData.match.params.id} />
+          )}
         />
         <Route exact={true} path="/Payment" redner={() => <Pay username={this.state.username} />} />
       </BrowserRouter>
