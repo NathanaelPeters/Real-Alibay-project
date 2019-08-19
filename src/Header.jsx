@@ -5,6 +5,8 @@ import Profile from "./Profile.jsx";
 import Mycart from "./Mycart.jsx";
 import Orders from "./Orders.jsx";
 import AddItem from "./AddItem.jsx";
+import LoginSignup from "./LoginSignupForm.jsx";
+import Search from "./Search.jsx";
 
 class UnconnectedHeader extends Component {
   handleLogout = async event => {
@@ -24,44 +26,65 @@ class UnconnectedHeader extends Component {
         type: "logout-success"
       });
     }
+    return <Redirect to="/" />;
   };
   mycart = () => {
     <Mycart />;
   };
   render = () => {
     return (
-      <div className="header">
-        <div>
-          <Link to="/">
-            <img src="../uploads/decodelogo.png" height="100px" />
-          </Link>
-        </div>
-        <Link to="/addItem" className="headerforms">
-          {" "}
-          Sell{" "}
-        </Link>
-        <div>Good morning {this.props.username}! </div>
-        <div>
-          <Link to="/Orders" className="headerforms">
-            {" "}
-            Orders{" "}
-          </Link>
-          <Link to="/Mycart" className="headerforms">
-            {" "}
-            My Cart{" "}
-          </Link>
-          <Link to="/profile" className="headerforms">
-            {" "}
-            Profile{" "}
-          </Link>{" "}
-          <button className="headerforms" onClick={this.handleLogout}>
-            {" "}
-            Log out{" "}
-          </button>
-        </div>
+      <div>
+        {this.props.loggedIn === false ? (
+          <div className="header">
+            <div>
+              <Link to="/">
+                <img src="../uploads/decodelogo.png" height="100px" />
+              </Link>
+            </div>
+            <Link to="/LoginSignup" className="headerforms">
+              Login/Signup
+            </Link>
+          </div>
+        ) : (
+          <div>
+            <div className="header">
+              <div>
+                <Link to="/">
+                  <img src="../uploads/decodelogo.png" height="100px" />
+                </Link>
+              </div>
+              <Link to="/addItem" className="headerforms">
+                {" "}
+                Sell{" "}
+              </Link>
+              <div>Good morning {this.props.username}! </div>
+              <div>
+                <Link to="/Orders" className="headerforms">
+                  {" "}
+                  Orders{" "}
+                </Link>
+                <Link to="/Mycart" className="headerforms">
+                  {" "}
+                  My Cart{" "}
+                </Link>
+                <Link to="/profile" className="headerforms">
+                  {" "}
+                  Profile{" "}
+                </Link>{" "}
+                <button className="headerforms" onClick={this.handleLogout}>
+                  {" "}
+                  Log out{" "}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   };
 }
-let Header = connect()(UnconnectedHeader);
+let mapStateToProps = state => {
+  return { loggedIn: state.loggedIn };
+};
+let Header = connect(mapStateToProps)(UnconnectedHeader);
 export default Header;
