@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./main.css";
 import { connect } from "react-redux";
 import store from "./store.js";
+import { Details } from "./details.jsx"
 
 class UnconnectedBody extends Component {
   handleCartButton = () => {
@@ -29,7 +30,7 @@ class UnconnectedBody extends Component {
           <div>{this.props.description}</div>
           <div>{this.props.cost}</div>
           <div className="button">
-            <Link className="button1" to={"/profile"}>
+            <Link className="button1" to={"/Details"}>
               More Details
             </Link>
             <p className="line">

@@ -10,6 +10,7 @@ import Body from "./Body.jsx";
 import { initialItems, initialProfile, initialCart } from "./Data.js";
 import Search from "./Search.jsx";
 import { Pay } from './Payment.jsx';
+import Details from "./details.jsx";
 
 class UnconnectedApp extends Component {
   constructor() {
@@ -27,8 +28,22 @@ class UnconnectedApp extends Component {
   renderCart = () => {
     return (
       <div>
-        {this.props.cart.map(item => (
+        {this.props.details.map(item => (
           <Mycart
+            cost={item.price}
+            itemId={item.itemId}
+            imageLocation={item.image}
+            description={item.description}
+          />
+        ))}
+      </div>
+    );
+  };
+  renderDetails = () => {
+    return (
+      <div>
+        {this.props.cart.map(item => (
+          <Details
             cost={item.price}
             profileID={item.profileID}
             imageLocation={item.image}
@@ -204,7 +219,7 @@ class UnconnectedApp extends Component {
           path="/AddtoCart/:cid"
           render={this.renderAddtoCart}
         />
-        <Route exact={true} path="/Payment" redner={() => <Pay />} />
+        <Route exact={true} path="/Payment" redner={() => <Pay username={this.state.username} />} />
       </BrowserRouter>
     );
   };
