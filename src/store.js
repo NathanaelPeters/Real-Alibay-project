@@ -1,8 +1,8 @@
 import { createStore } from "redux";
-import { initialItems } from "./Data.js";
+import { initialItems, initialProfile } from "./Data.js";
 
 let reducer = (state, action) => {
-  console.log(action.item, state.items);
+  console.log(state);
   if (action.type === "login-success") {
     return { ...state, loggedIn: true };
   }
@@ -22,7 +22,7 @@ let reducer = (state, action) => {
     return { ...state, max: action.price };
   }
   if (action.type === "select-group") {
-    return { ...state, group: action.value, categories: [] };
+    return { ...state, group: action.value };
   }
   if (action.type === "additemcart") {
     return { ...state, cart: state.cart.concat(action.item) };
@@ -50,6 +50,7 @@ const store = createStore(
   {
     loggedIn: false,
     items: initialItems,
+    sellers: initialProfile,
     searchQuery: "",
     min: 0,
     max: 100000,

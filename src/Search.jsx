@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
 import items from "./data";
+import { Link } from "react-router-dom";
+
 class UnconnectedSearch extends Component {
   handleQuery = evt => {
     this.props.dispatch({ type: "query", q: evt.target.value });
@@ -17,15 +19,26 @@ class UnconnectedSearch extends Component {
   };
 
   handleSelectGroup = event => {
+    console.log(event.target.value);
     this.props.dispatch({ type: "select-group", value: event.target.value });
   };
   handleSelectCategory = () => {
     console.log("checked", event.target.checked);
-    console.log(items, event.target.value);
+    console.log(this.props.items, event.target.value);
     this.props.dispatch({
       type: "select-category",
       category: event.target.value,
       include: event.target.checked
+    });
+  };
+  handleCartButton = () => {
+    let item = {
+      username: this.props.username,
+      ...this.props.item
+    };
+    this.props.dispatch({
+      type: "additemcart",
+      item: item
     });
   };
   render = () => {
@@ -60,16 +73,16 @@ class UnconnectedSearch extends Component {
     return (
       <div className="searchbox" height="100px">
         <div>
-          <p>
+          <div>
             Search query
             <input
               type="text"
               onChange={this.handleQuery}
               value={this.props.query}
             />
-          </p>
+          </div>
         </div>
-        <p>
+        <div>
           <div>
             Minimum price
             <input
@@ -78,8 +91,8 @@ class UnconnectedSearch extends Component {
               value={this.props.minPrice.toString()}
             />
           </div>
-        </p>
-        <p>
+        </div>
+        <div>
           <div>
             Maximum price
             <input
@@ -88,9 +101,9 @@ class UnconnectedSearch extends Component {
               value={this.props.maxPrice.toString()}
             />
           </div>
-        </p>
+        </div>
         <div>
-          <p>
+          <div>
             <div>
               <input
                 type="radio"
@@ -101,9 +114,9 @@ class UnconnectedSearch extends Component {
               Men's
               {this.props.group === "men" ? submenu : null}
             </div>
-          </p>
+          </div>
           <div>
-            <p>
+            <div>
               <input
                 type="radio"
                 name="group"
@@ -112,10 +125,10 @@ class UnconnectedSearch extends Component {
               />{" "}
               Women's
               {this.props.group === "women" ? submenu : null}
-            </p>
+            </div>
           </div>
           <div>
-            <p>
+            <div>
               <input
                 type="radio"
                 name="group"
@@ -124,10 +137,10 @@ class UnconnectedSearch extends Component {
               />
               Children's
               {this.props.group === "children" ? submenu : null}
-            </p>
+            </div>
           </div>
           <div>
-            <p>
+            <div>
               <input
                 type="radio"
                 name="group"
@@ -135,7 +148,7 @@ class UnconnectedSearch extends Component {
                 onChange={this.handleSelectGroup}
               />
               All
-            </p>
+            </div>
           </div>
         </div>
       </div>
