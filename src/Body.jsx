@@ -5,6 +5,33 @@ import { connect } from "react-redux";
 import store from "./store.js";
 
 class UnconnectedBody extends Component {
+  handleQuery = evt => {
+    this.props.dispatch({ type: "query", q: evt.target.value });
+  };
+  handleMinimumPrice = evt => {
+    let price = parseInt(evt.target.value);
+    if (isNaN(price)) price = 0;
+    this.props.dispatch({ type: "minimum-price", price: price });
+  };
+  handleMaximumPrice = evt => {
+    let price = parseInt(evt.target.value);
+    if (isNaN(price)) price = 0;
+    this.props.dispatch({ type: "maximum-price", price: price });
+  };
+
+  handleSelectGroup = event => {
+    console.log(event.target.value);
+    this.props.dispatch({ type: "select-group", value: event.target.value });
+  };
+  handleSelectCategory = () => {
+    console.log("checked", event.target.checked);
+    console.log(this.props.items, event.target.value);
+    this.props.dispatch({
+      type: "select-category",
+      category: event.target.value,
+      include: event.target.checked
+    });
+  };
   handleCartButton = () => {
     let item = {
       username: this.props.username,
@@ -16,7 +43,6 @@ class UnconnectedBody extends Component {
     });
   };
   render = () => {
-    console.log(this.props);
     return (
       <div className="card center ">
         <img

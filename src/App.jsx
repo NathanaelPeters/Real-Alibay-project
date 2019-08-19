@@ -12,6 +12,8 @@ import Mycart from "./Mycart.jsx";
 import Body from "./Body.jsx";
 import { initialItems, initialProfile, initialCart } from "./Data.js";
 import Search from "./Search.jsx";
+import SearchResults from "./SearchResults.jsx";
+import SellerProfile from "./SellerProfile.jsx";
 
 class UnconnectedApp extends Component {
   constructor() {
@@ -26,6 +28,14 @@ class UnconnectedApp extends Component {
       loggedIn: false
     };
   }
+  searchResults = () => {
+    return (
+      <div>
+        <Search />
+        <SearchResults />
+      </div>
+    );
+  };
   renderCart = () => {
     return (
       <div>
@@ -35,25 +45,6 @@ class UnconnectedApp extends Component {
             profileID={item.profileID}
             imageLocation={item.image}
             description={item.description}
-          />
-        ))}
-      </div>
-    );
-  };
-  renderAllItems = () => {
-    return (
-      <div>
-        {this.props.items.map(item => (
-          <Body
-            cost={item.price}
-            profileID={item.profileID}
-            imageLocation={item.image}
-            description={item.description}
-            item={item}
-            username={this.state.username}
-            // cartTotal={cart.total}
-            // cartID={cart.id}
-            // cartItem={cart.item}
           />
         ))}
       </div>
@@ -132,7 +123,7 @@ class UnconnectedApp extends Component {
     this.setState({ signuptoggle: !this.state.signuptoggle });
   };
   render = () => {
-    console.log("username:", this.state.username);
+    console.log(this.props.sellers);
     if (this.props.login === false) {
       if (this.state.signuptoggle === false) {
         return (
@@ -200,20 +191,25 @@ class UnconnectedApp extends Component {
           path="/Orders"
           render={() => <Orders username={this.state.username} />}
         />
-        <Route exact={true} path="/" render={this.renderAllItems} />
         <Route
-          exact={true}
-          path="/AddtoCart/:cid"
-          render={this.renderAddtoCart}
+          path="/SellerProfile/:id"
+          render={routerData => (
+            <SellerProfile sellerID={routerData.match.params.id} />
+          )}
         />
-        <Search />
+        <Route exact={true} path="/myCart" render={this.renderCart} />
+        <Route exact={true} path="/" render={this.searchResults} />
       </BrowserRouter>
     );
   };
 }
 let mapStateToProps = state => {
-  console.log(state);
-  return { login: state.loggedIn, items: state.items, cart: state.cart };
+  return {
+    login: state.loggedIn,
+    items: state.items,
+    cart: state.cart,
+    sellers: state.sellers
+  };
 };
 let App = connect(mapStateToProps)(UnconnectedApp);
 export default App;

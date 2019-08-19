@@ -1,8 +1,21 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
-import items from "./data.js";
+import initialItems from "./data.js";
+import { Link } from "react-router-dom";
+
 class UnconnectedSearchResults extends Component {
+  handleCartButton = () => {
+    let item = {
+      username: this.props.username,
+      ...this.props.item
+    };
+    this.props.dispatch({
+      type: "additemcart",
+      item: item
+    });
+  };
   render = () => {
+    let items = this.props.items;
     let results = items
       .filter(item => {
         return (
@@ -15,18 +28,41 @@ class UnconnectedSearchResults extends Component {
       })
       .filter(item => {
         return (
-          item.name.includes(this.props.query) &&
+          item.id.includes(this.props.query) &&
           item.price >= this.props.minPrice &&
           item.price <= this.props.maxPrice
         );
       });
+    console.log(results);
     return (
       <div>
         {results.map(item => {
           return (
-            <div key={item.id}>
-              <h3>{item.name}</h3>
-              {item.description}
+            <div className="card center ">
+              <img
+                className="imagelocation"
+                height="82px"
+                width="61 px"
+                src={item.image}
+              />
+              <div>
+                <div>{item.description}</div>
+                <div>{item.cost}</div>
+                <div className="button">
+                  <Link className="button1" to={"/profile"}>
+                    More Details
+                  </Link>
+                  <button className="button" onClick={this.handleCartButton}>
+                    Add to cart
+                  </button>
+                  <Link
+                    className="button1"
+                    to={"/SellerProfile/" + item.sellerId}
+                  >
+                    See the Seller!
+                  </Link>
+                </div>
+              </div>
             </div>
           );
         })}
@@ -36,6 +72,7 @@ class UnconnectedSearchResults extends Component {
 }
 let mapStateToProps = st => {
   return {
+    items: st.items,
     minPrice: st.min,
     maxPrice: st.max,
     query: st.searchQuery,
@@ -43,5 +80,6 @@ let mapStateToProps = st => {
     group: st.group
   };
 };
+
 let SearchResults = connect(mapStateToProps)(UnconnectedSearchResults);
 export default SearchResults;
