@@ -29,10 +29,9 @@ class UnconnectedSearchResults extends Component {
       })
       .filter(item => {
         return (
-          item.itemName.includes(this.props.query) ||
-          (item.description.includes(this.props.query) &&
-            item.price >= this.props.minPrice &&
-            item.price <= this.props.maxPrice)
+          item.description.toLowerCase().includes(this.props.query) &&
+          item.price >= this.props.minPrice &&
+          item.price <= this.props.maxPrice
         );
       });
     return (

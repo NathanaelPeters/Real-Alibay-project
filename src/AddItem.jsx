@@ -87,7 +87,11 @@ class UnconnectedAddItem extends Component {
           </div>
           <div>
             <h3>How much is your product?</h3>
+            $
             <input
+              type="number"
+              min="1"
+              step="1"
               onChange={this.handlePrice}
               placeholder="Price of your product!"
             />

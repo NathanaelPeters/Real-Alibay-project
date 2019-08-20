@@ -50,7 +50,7 @@ class UnconnectedApp extends Component {
       <div>
         <h1>Your cart</h1>
         {this.props.cart.map(item => (
-          <CartItem item={item} />
+          <CartItem item={item} itemID={item.id} />
         ))}
       </div>
     );

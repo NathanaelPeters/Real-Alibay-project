@@ -27,6 +27,14 @@ let reducer = (state, action) => {
   if (action.type === "additemcart") {
     return { ...state, cart: state.cart.concat(action.item) };
   }
+  if (action.type === "remove-item") {
+    return {
+      ...state,
+      cart: state.cart.filter(removedItem => {
+        return removedItem.id !== action.item;
+      })
+    };
+  }
   if (action.type === "select-category") {
     // if should be included, add to the array if not there
     if (action.include && !state.categories.includes(action.category)) {
