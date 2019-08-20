@@ -15,6 +15,7 @@ import Search from "./Search.jsx";
 import { Pay } from "./Payment.jsx";
 import Details from "./details.jsx";
 import LoginSignup from "./LoginSignupForm.jsx";
+import SearchResults from "./SearchResults.jsx";
 
 class UnconnectedApp extends Component {
   constructor() {
@@ -40,20 +41,8 @@ class UnconnectedApp extends Component {
 
   renderDetails = routerData => {
     let itemID = routerData.match.params.id;
-    return (
-      <div>
-        {this.props.items.map(item => {
-          if (itemID === item.id) {
-            <Details
-              cost={item.price}
-              itemID={item.id}
-              imageLocation={item.image}
-              description={item.description}
-            />;
-          }
-        })}
-      </div>
-    );
+    let item = this.props.items.filter(item => itemID === item.id)[0];
+    return <Details item={item} />;
   };
 
   renderCart = () => {
@@ -61,17 +50,7 @@ class UnconnectedApp extends Component {
       <div>
         <h1>Your cart</h1>
         {this.props.cart.map(item => (
-          <CartItem
-            cost={item.price}
-            profileID={item.profileID}
-            imageLocation={item.image}
-            description={item.description}
-            item={item}
-            username={this.state.username}
-            // cartTotal={cart.total}
-            // cartID={cart.id}
-            // cartItem={cart.item}
-          />
+          <CartItem item={item} />
         ))}
       </div>
     );
@@ -88,12 +67,6 @@ class UnconnectedApp extends Component {
           path="/AddItem"
           render={() => <AddItem username={this.props.username} />}
         />
-        <Route exact={true} path="/Mycart" render={this.renderCart} />
-        <Route
-          exact={true}
-          path="/LoginSignup"
-          render={() => <LoginSignup />}
-        />
         <Route
           path="/Orders"
           render={() => <Orders username={this.props.username} />}
@@ -106,11 +79,8 @@ class UnconnectedApp extends Component {
         />
         <Route exact={true} path="/Mycart" render={this.renderCart} />
         <Route exact={true} path="/" render={this.searchResults} />
-        <Route
-          exact={true}
-          path="/Details/:id"
-          render={routerData => <Details itemID={routerData.match.params.id} />}
-        />
+        <Route exact={true} path="/Details/:id" render={this.renderDetails} />
+
         <Route
           exact={true}
           path="/Payment"

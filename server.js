@@ -82,15 +82,14 @@ app.post("/addItem", upload.single("thepic"), (req, res) => {
   let frontendPath = "/uploads/" + file.filename;
   let itemId = generateId();
   let newItem = {
-    description: itemName,
+    description: itemDesc,
     price: itemPrice,
-    desc: itemDesc,
+    itemName: itemName,
     image: frontendPath,
     seller: username,
     sellerId: req.cookies.sid,
-    itemId: itemId
+    id: itemId
   };
-  items = items.concat(newItem);
   res.send(JSON.stringify({ newItem }));
 });
 

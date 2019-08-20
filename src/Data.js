@@ -1,5 +1,6 @@
 let initialItems = [
   {
+    itemName: "Sweatpants",
     description: "Comfortable sweatpants",
     price: 10,
     image: "/grey.png",
@@ -7,15 +8,11 @@ let initialItems = [
     sellerId: "ewio",
     group: "men",
     category: "bottom",
-    seller: "Jack Frost",
-    id: "asewq",
-    description: "great sweats",
-    price: "10$",
-    image: "/grey.png",
-    sellerId: "ewio"
+    seller: "Jack Frost"
   },
   {
-    id: "shirt",
+    itemName: "T-Shirt",
+    id: "fghk",
     description: "Nike T Shirt",
     price: 50,
     image: "/tshirt.png",
@@ -26,7 +23,8 @@ let initialItems = [
     sellerId: "xcvb"
   },
   {
-    id: "hat",
+    itemName: "Baseball Hat",
+    id: "iopu",
     description: "Baseball Hat",
     price: 15,
     image: "/hat.png",
@@ -37,7 +35,8 @@ let initialItems = [
     sellerId: "ewio"
   },
   {
-    id: "shorts",
+    itemName: "Shorts",
+    id: "dfgh",
     description: "Great Shorts",
     price: 20,
     image: "/shorts.png",
@@ -48,7 +47,8 @@ let initialItems = [
     sellerId: "xcvb"
   },
   {
-    id: "shoes",
+    itemName: "Shoes",
+    id: "qwret",
     description: "Jordan Shoes",
     price: 150,
     image: "/shoes.png",
@@ -59,11 +59,11 @@ let initialItems = [
     sellerId: "ewio"
   },
   {
-    id: "sweatshirt",
+    itemName: "Hoodie",
+    id: "gkjh",
     description: "Amazing hoodie!",
     price: 40,
     image: "/sweatshirt.png",
-    sellerId: "xcvb",
     group: "men",
     category: "top",
     seller: "Hank Green",

@@ -8,20 +8,16 @@ class CartItem extends Component {
     return;
   };
   render() {
+    let { price, description, image } = this.props.item;
+
     return (
       <div>
         <div className="cart">
           <div className="product">
-            <img
-              className="image"
-              height="82px"
-              width="61 px"
-              src={this.props.imageLocation}
-            />
+            <img className="image" height="82px" width="61 px" src={image} />
             <div>
-              <div className="description">{this.props.description}</div>
-              <div className="price">{"$" + this.props.cost}</div>
-              <div className="quantity">{this.props.quantity}</div>
+              <div className="description">{description}</div>
+              <div className="price">{"$" + price}</div>
               <Link
                 className="checkout"
                 to={"/payment/" + this.props.payment}

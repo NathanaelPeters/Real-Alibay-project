@@ -29,16 +29,17 @@ class UnconnectedSearchResults extends Component {
       })
       .filter(item => {
         return (
-          item.id.includes(this.props.query) &&
-          item.price >= this.props.minPrice &&
-          item.price <= this.props.maxPrice
+          item.itemName.includes(this.props.query) ||
+          (item.description.includes(this.props.query) &&
+            item.price >= this.props.minPrice &&
+            item.price <= this.props.maxPrice)
         );
       });
     return (
       <div>
         {results.map(item => {
           return (
-            <div className="card center ">
+            <div className="card center" key={item.id}>
               <img
                 className="imagelocation"
                 height="82px"
@@ -46,7 +47,7 @@ class UnconnectedSearchResults extends Component {
                 src={item.image}
               />
               <div>
-                <div>{item.description}</div>
+                <div>{item.itemName}</div>
                 <div>{item.cost}</div>
                 <div className="button">
                   <Link className="button1" to={"/Details/" + item.id}>
