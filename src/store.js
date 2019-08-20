@@ -4,7 +4,7 @@ import { initialItems, initialProfile } from "./Data.js";
 let reducer = (state, action) => {
   console.log(state);
   if (action.type === "login-success") {
-    return { ...state, loggedIn: true };
+    return { ...state, loggedIn: true, username: action.username };
   }
   if (action.type === "logout-success") {
     return { ...state, loggedIn: false };
@@ -56,7 +56,8 @@ const store = createStore(
     max: 100000,
     categories: [],
     group: "",
-    cart: []
+    cart: [],
+    username: ""
   },
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

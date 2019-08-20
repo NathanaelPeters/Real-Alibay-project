@@ -2,35 +2,35 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-class unconnectedLoginSignup extends Component {
+class UnconnectedLoginSignup extends Component {
   constructor() {
     super();
     this.state = {
-      usernameInput: "",
-      passwordInput: "",
+      loginUsernameInput: "",
+      loginPasswordInput: "",
       username: undefined,
-      setusername: "",
-      setpwd: "",
+      signupUsernameInput: "",
+      signupPasswordInput: "",
       signuptoggle: false,
       loggedIn: false
     };
   }
   usernameChange = evt => {
     console.log("login username:", evt.target.value);
-    this.setState({ usernameInput: evt.target.value });
+    this.setState({ loginUsernameInput: evt.target.value });
   };
   passwordChange = evt => {
     console.log("login pwd:", evt.target.value);
-    this.setState({ passwordInput: evt.target.value });
+    this.setState({ loginPasswordInput: evt.target.value });
   };
   submitloginHandler = async evt => {
     evt.preventDefault();
-    console.log("username", this.state.usernameInput);
-    console.log("password", this.state.passwordInput);
-    let name = this.state.usernameInput;
+    console.log("username", this.state.loginUsernameInput);
+    console.log("password", this.state.loginPasswordInput);
+    let name = this.state.loginUsernameInput;
     let data = new FormData();
     data.append("username", name);
-    data.append("password", this.state.passwordInput);
+    data.append("password", this.state.loginPasswordInput);
     let response = await fetch("/login", { method: "POST", body: data });
     let body = await response.text();
     console.log("/login response", body);
@@ -39,25 +39,26 @@ class unconnectedLoginSignup extends Component {
       alert("login failed");
       return;
     }
-    this.props.dispatch({
-      type: "login-success"
-    });
     this.setState({ username: name });
+    this.props.dispatch({
+      type: "login-success",
+      username: this.state.username
+    });
   };
   usernameSet = evt => {
     console.log("set username:", evt.target.value, this.state);
-    this.setState({ setusername: evt.target.value });
+    this.setState({ signupUsernameInput: evt.target.value });
   };
   passwordSet = evt => {
     console.log("set password:", evt.target.value);
-    this.setState({ setpwd: evt.target.value });
+    this.setState({ signupPasswordInput: evt.target.value });
   };
   submitsignupHandler = async evt => {
     evt.preventDefault();
-    console.log("set username", this.state.setusername);
-    console.log("set password", this.state.setpwd);
-    let username = this.state.setusername;
-    let password = this.state.setpwd;
+    console.log("set username", this.state.signupUsernameInput);
+    console.log("set password", this.state.signupPasswordInput);
+    let username = this.state.signupUsernameInput;
+    let password = this.state.signupPasswordInput;
     let data = new FormData();
     data.append("username", username);
     data.append("password", password);
@@ -78,10 +79,11 @@ class unconnectedLoginSignup extends Component {
       console.log("responseBody from login", responseBod);
       let body = JSON.parse(responseBod);
       console.log("parsed body", body);
-      this.props.dispatch({
-        type: "login-success"
-      });
       this.setState({ username: username });
+      this.props.dispatch({
+        type: "login-success",
+        username: this.state.username
+      });
     }
   };
   signuptoggle = () => {
@@ -89,9 +91,9 @@ class unconnectedLoginSignup extends Component {
   };
   render = () => {
     if (this.props.login === true) {
-      return <Redirect to="/" />;
+      return <Redirect to="/" username={this.state.username} />;
     }
-    console.log("username:", this.props.username);
+    console.log("username:", this.state.username);
     if (this.props.login === false) {
       if (this.state.signuptoggle === false) {
         return (
@@ -102,13 +104,13 @@ class unconnectedLoginSignup extends Component {
                   type="text"
                   onChange={this.usernameSet}
                   placeholder="Create username"
-                  value={this.state.setusername}
+                  value={this.state.signupUsernameInput}
                 />
                 <input
                   type="text"
                   onChange={this.passwordSet}
                   placeholder="Create password"
-                  value={this.state.setpassword}
+                  value={this.state.signupPasswordInput}
                 />
                 <button onClick={this.submitsignupHandler}>create</button>
                 <p>Already registered?</p>
@@ -129,13 +131,13 @@ class unconnectedLoginSignup extends Component {
               type="text"
               onChange={this.usernameChange}
               placeholder="username"
-              value={this.state.usernameInput}
+              value={this.state.loginUsernameInput}
             />
             <input
               type="text"
               onChange={this.passwordChange}
               placeholder="password"
-              value={this.state.passwordInput}
+              value={this.state.loginPasswordInput}
             />
             <button onClick={this.submitloginHandler}>login</button>
             <p>Not registered? </p>
@@ -152,5 +154,5 @@ let mapStateToProps = state => {
   console.log(state);
   return { login: state.loggedIn };
 };
-let LoginSignup = connect(mapStateToProps)(unconnectedLoginSignup);
+let LoginSignup = connect(mapStateToProps)(UnconnectedLoginSignup);
 export default LoginSignup;

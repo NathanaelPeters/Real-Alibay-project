@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Profile from "./Profile.jsx";
-import Mycart from "./Mycart.jsx";
+import CartItem from "./CartItem.jsx";
 import Orders from "./Orders.jsx";
 import AddItem from "./AddItem.jsx";
 import LoginSignup from "./LoginSignupForm.jsx"
@@ -28,9 +28,7 @@ class UnconnectedHeader extends Component {
     }
     return <Redirect to="/" />;
   };
-  mycart = () => {
-    <Mycart />;
-  };
+
   render = () => {
     return (
       <div>
@@ -83,8 +81,10 @@ class UnconnectedHeader extends Component {
     );
   };
 }
+
 let mapStateToProps = state => {
   return { loggedIn: state.loggedIn };
 };
+
 let Header = connect(mapStateToProps)(UnconnectedHeader);
 export default Header;

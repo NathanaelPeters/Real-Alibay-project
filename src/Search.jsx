@@ -31,16 +31,6 @@ class UnconnectedSearch extends Component {
       include: event.target.checked
     });
   };
-  handleCartButton = () => {
-    let item = {
-      username: this.props.username,
-      ...this.props.item
-    };
-    this.props.dispatch({
-      type: "additemcart",
-      item: item
-    });
-  };
   render = () => {
     let submenu = (
       <div className="checkbox">

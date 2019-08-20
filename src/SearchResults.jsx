@@ -4,19 +4,20 @@ import initialItems from "./data.js";
 import { Link } from "react-router-dom";
 
 class UnconnectedSearchResults extends Component {
-  handleCartButton = () => {
-    let item = {
-      username: this.props.username,
-      ...this.props.item
+  handleCartButton = item => {
+    return () => {
+      item = {
+        username: this.props.username,
+        ...item
+      };
+      this.props.dispatch({
+        type: "additemcart",
+        item: item
+      });
     };
-    this.props.dispatch({
-      type: "additemcart",
-      item: item
-    });
   };
   render = () => {
-    let items = this.props.items;
-    let results = items
+    let results = this.props.items
       .filter(item => {
         return (
           !this.props.group ||
@@ -33,7 +34,6 @@ class UnconnectedSearchResults extends Component {
           item.price <= this.props.maxPrice
         );
       });
-    console.log(results);
     return (
       <div>
         {results.map(item => {
@@ -49,10 +49,13 @@ class UnconnectedSearchResults extends Component {
                 <div>{item.description}</div>
                 <div>{item.cost}</div>
                 <div className="button">
-                  <Link className="button1" to={"/details" + item.id}>
+                  <Link className="button1" to={"/Details/" + item.id}>
                     More Details
                   </Link>
-                  <button className="button" onClick={this.handleCartButton}>
+                  <button
+                    className="button"
+                    onClick={this.handleCartButton(item)}
+                  >
                     Add to cart
                   </button>
                   <Link
@@ -77,7 +80,8 @@ let mapStateToProps = st => {
     maxPrice: st.max,
     query: st.searchQuery,
     categories: st.categories,
-    group: st.group
+    group: st.group,
+    username: st.username
   };
 };
 
