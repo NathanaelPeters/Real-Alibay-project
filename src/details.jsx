@@ -2,9 +2,21 @@ import React, { Component } from "react";
 import "./main.css";
 import { initialItems } from "./Data.js";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
 class UnconnectedDetails extends Component {
+  handleCartButton = () => {
+    let item = {
+      username: this.props.username,
+      ...this.props.item
+    };
+    this.props.dispatch({
+      type: "additemcart",
+      item: item
+    });
+  };
   render() {
-    let { price, image, description } = this.props.item;
+    let { price, image, description, sellerId } = this.props.item;
     return (
       <div>
         <div>Details</div>
@@ -15,9 +27,12 @@ class UnconnectedDetails extends Component {
               <div className="descriptiond">{description}</div>
               <div className="priced">{"$" + price}</div>
               {/* <div className="quantityd">{this.props.quantity}</div> */}
-              <button className="Add" onClick={this.mycart}>
+              <button className="Add" onClick={this.handleCartButton}>
                 Add to Cart
               </button>
+              <Link className="button6" to={"/SellerProfile/" + sellerId}>
+                See the Seller!
+              </Link>
               <select className="dropdown">
                 <option>1</option>
                 <option>2</option>

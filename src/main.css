@@ -7,7 +7,7 @@ body {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4caf50;
+  background: #2699fb;
   width: 100px;
   border: 10;
   padding: 15px;
@@ -117,11 +117,11 @@ h2 {
 .form button:hover,
 .form button:active,
 .form button:focus {
-  background: #d6252c;
+  background: #2699fb;
 }
 .form .message {
   margin: 15px 0 0;
-  color: #b3b3b3;
+  color: #2699fb;
   font-size: 12px;
   cursor: pointer;
   color: blue;
@@ -161,14 +161,10 @@ h2 {
   text-decoration: none;
 }
 .container .info span .fa {
-  color: #d6252c;
+  color: #2699fb;
 }
 body {
-  background: #d6252c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #2699fb, #ffffff);
-  background: -moz-linear-gradient(right, #2699fb, #ffffff);
-  background: -o-linear-gradient(right, #2699fb, #ffffff);
-  background: linear-gradient(to left, #2699fb, #ffffff);
+  background: #2699fb; /* fallback for old browsers */
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -194,10 +190,7 @@ body {
 }
 .card {
   border-radius: 25px;
-  background: -webkit-linear-gradient(right, #8dc26f, #d6252c);
-  background: -moz-linear-gradient(right, #8dc26f, #d6252c);
-  background: -o-linear-gradient(right, #8dc26f, #d6252c);
-  background: linear-gradient(to left, #8dc26f, #d6252c);
+  background: blue;
   padding: 20px;
   width: 200px;
   height: 180px;

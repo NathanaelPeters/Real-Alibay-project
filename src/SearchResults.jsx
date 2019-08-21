@@ -60,12 +60,6 @@ class UnconnectedSearchResults extends Component {
                   >
                     Add to cart
                   </button>
-                  <Link
-                    className="button6"
-                    to={"/SellerProfile/" + item.sellerId}
-                  >
-                    See the Seller!
-                  </Link>
                 </div>
               </div>
             </div>
