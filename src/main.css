@@ -4,7 +4,7 @@ body {
 }
 
 .headerforms {
-  font-family: "Roboto", sans-serif;
+  font-family: "Dosis", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #2699fb;
@@ -104,7 +104,7 @@ h2 {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4caf50;
+  background: #2699fb;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -211,7 +211,7 @@ body {
   border-radius: 25px;
 }
 .card:hover .button {
-  opacity: 0.35;
+  opacity: 1;
 }
 
 .cart {
@@ -267,7 +267,22 @@ body {
   display: absolute;
   left: 100px;
   width: 600px;
-  border: 5px solid black;
   padding: 45px;
   margin: auto;
+  display: flex;
+}
+.button6,
+.Add {
+  background-color: #2699fb;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.titleImage {
+  display: flex;
 }

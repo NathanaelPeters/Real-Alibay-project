@@ -3,6 +3,7 @@ import StripeCheckout from "react-stripe-checkout";
 import { connect } from "react-redux";
 class Pay extends Component {
   onToken = token => {
+    console.log(this.props);
     console.log(token);
     fetch("/save-stripe-token", {
       method: "POST",
@@ -11,7 +12,7 @@ class Pay extends Component {
       response.json().then(data => {
         alert(`Thank you for your purchase!`);
         this.props.dispatch({ type: "empty-cart" });
-        this.props.routerData.push("/");
+        this.props.routerData.push("/Shop");
       });
     });
   };

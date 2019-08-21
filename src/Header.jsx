@@ -26,7 +26,7 @@ class UnconnectedHeader extends Component {
         type: "logout-success"
       });
     }
-    return <Redirect to="/" />;
+    return <Redirect to="/Shop" />;
   };
 
   render = () => {
@@ -51,16 +51,12 @@ class UnconnectedHeader extends Component {
                   <img src="../uploads/decodelogo.png" height="100px" />
                 </Link>
               </div>
+              <div>Good morning {this.props.username}! </div>
               <Link to="/addItem" className="headerforms">
                 {" "}
                 Sell{" "}
               </Link>
-              <div>Good morning {this.props.username}! </div>
               <div>
-                <Link to="/Orders" className="headerforms">
-                  {" "}
-                  Orders{" "}
-                </Link>
                 <Link to="/CartItem" className="headerforms">
                   {" "}
                   My Cart{" "}

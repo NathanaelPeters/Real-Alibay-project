@@ -44,7 +44,12 @@ export default class CartTotal extends Component {
           />
         ))}
         <div>{displayTotal}</div>
-        <Pay total={this.state.total} className="checkout" />
+        <Pay
+          total={this.state.total}
+          className="checkout"
+          username={this.state.username}
+          routerData={this.props.routerData.history}
+        />
         {/* <img
           class="active"
           src="https://thumbs.gfycat.com/GratefulEdibleGrayreefshark.webp"

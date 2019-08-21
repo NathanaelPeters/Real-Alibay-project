@@ -16,33 +16,44 @@ class UnconnectedDetails extends Component {
     });
   };
   render() {
-    let { price, image, description, sellerId } = this.props.item;
+    let {
+      price,
+      image,
+      description,
+      sellerId,
+      quantity,
+      itemName
+    } = this.props.item;
     return (
       <div>
-        <div>Details</div>
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+          crossorigin="anonymous"
+        />
         <div className="details">
-          <div className="detailproduct">
-            <img className="image" height="82px" width="61px" src={image} />
-            <div>
-              <div className="descriptiond">{description}</div>
-              <div className="priced">{"$" + price}</div>
-              {/* <div className="quantityd">{this.props.quantity}</div> */}
-              <button className="Add" onClick={this.handleCartButton}>
-                Add to Cart
-              </button>
-              <Link className="button6" to={"/SellerProfile/" + sellerId}>
-                See the Seller!
-              </Link>
-              <select className="dropdown">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-              </select>
+          <div className="TitleImage">
+            <h2>{itemName}</h2>
+            <div className="priced">
+              <h3>{"$" + price}</h3>
             </div>
+          </div>
+          <div className="detailproduct">
+            <img className="image" height="410px" width="305px" src={image} />
+          </div>
+          <br />
+          <div className="descButtons">
+            <div className="descriptiond">{description}</div>
+
+            <div className="quantityd">In stock: {quantity}</div>
+            <button className="Add" onClick={this.handleCartButton}>
+              Add to Cart
+              <i class="fas fa-cart-plus" />
+            </button>
+            <Link className="button6" to={"/SellerProfile/" + sellerId}>
+              See the Seller!
+            </Link>
           </div>
         </div>
       </div>

@@ -50,7 +50,7 @@ class UnconnectedApp extends Component {
     return (
       <div>
         <h1>Your cart</h1>
-        <CartTotal cart={this.props.cart} routerData={routerData.history} />
+        <CartTotal cart={this.props.cart} routerData={routerData} />
       </div>
     );
   };
@@ -89,22 +89,6 @@ class UnconnectedApp extends Component {
         <Route exact={true} path="/CartItem" render={this.renderCart} />
         <Route exact={true} path="/Shop" render={this.searchResults} />
         <Route exact={true} path="/Details/:id" render={this.renderDetails} />
-
-        <Route
-          exact={true}
-          path="/LoginSignup"
-          render={() => <LoginSignup />}
-        />
-        <Route
-          exact={true}
-          path="/Payment"
-          render={routerData => (
-            <Pay
-              username={this.state.username}
-              routerData={routerData.history}
-            />
-          )}
-        />
       </BrowserRouter>
     );
   };
