@@ -13,7 +13,7 @@ app.use("/", express.static("build/dist"));
 app.use("/uploads", express.static("uploads"));
 let dbo = undefined;
 let url =
-  "mongodb+srv://a:a@cluster0-zknku.mongodb.net/test?retryWrites=true&w=majority";
+  "mongodb+srv://a:a@pickupwebsite-zknku.mongodb.net/test?retryWrites=true&w=majority";
 MongoClient.connect(url, { useNewUrlParser: true }, (err, db) => {
   dbo = db.db("alibay-login");
 });

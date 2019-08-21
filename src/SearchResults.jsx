@@ -30,7 +30,7 @@ class UnconnectedSearchResults extends Component {
       })
       .filter(item => {
         return (
-          item.description
+          item.itemName
             .toLowerCase()
             .includes(this.props.query.toLowerCase()) &&
           item.price >= this.props.minPrice &&

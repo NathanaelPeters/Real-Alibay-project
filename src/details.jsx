@@ -3,6 +3,7 @@ import "./main.css";
 import { initialItems } from "./Data.js";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import SellerProfile from "./SellerProfile.jsx";
 
 class UnconnectedDetails extends Component {
   handleCartButton = () => {
@@ -31,7 +32,7 @@ class UnconnectedDetails extends Component {
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
         <div className="details">
           <div className="TitleImage">
@@ -41,7 +42,7 @@ class UnconnectedDetails extends Component {
             </div>
           </div>
           <div className="detailproduct">
-            <img className="image" height="410px" width="305px" src={image} />
+            <img className="image" height="405px" width="300px" src={image} />
           </div>
           <br />
           <div className="descButtons">
@@ -52,7 +53,7 @@ class UnconnectedDetails extends Component {
               Add to Cart
               <i class="fas fa-cart-plus" />
             </button>
-            <Link className="button6" to={"/SellerProfile/" + sellerId}>
+            <Link className="button6" to={"/SellerProfile" + sellerId}>
               See the Seller!
             </Link>
           </div>

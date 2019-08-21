@@ -320,63 +320,44 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .titleImage {
   display: flex;
 }
-.searchbox {
-  position: fixed;
-  bottom: 88%;
-  left: 8%;
+.container-1 .icon {
+  position: absolute;
+  top: 50%;
+  margin-left: 10px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
 }
-.inputtxt[type="text"] {
-  width: 130px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
+.container-1 input#search:hover,
+.container-1 input#search:focus,
+.container-1 input#search:active {
+  outline: none;
+  background: #bce0fd;
 }
-.inputtxt[type="text"]:focus {
-  width: 100%;
-}
-/* Style the navbar */
-.searchbox {
-  overflow: hidden;
-  background-color: #333;
-}
-
-/* Navbar links */
-.searchbox a {
+.container-1 input#search {
+  width: 200px;
+  height: 50px;
+  background: #2699fb;
+  border: none;
+  font-size: 10pt;
   float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
-}
+  color: #262626;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 
-/* Page content */
-.content {
-  padding: 16px;
-}
-
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 60px;
+  -webkit-transition: background 0.55s ease;
+  -moz-transition: background 0.55s ease;
+  -ms-transition: background 0.55s ease;
+  -o-transition: background 0.55s ease;
+  transition: background 0.55s ease;
 }
 
 .shopping-cart {
@@ -457,38 +438,38 @@ body {
   }
 }
 
-.image {
+.imagecart {
   margin-right: 50px;
   height: 100px;
 }
 
-.description {
+.descriptioncart {
   padding-top: 10px;
   margin-right: 60px;
   width: 115px;
 }
 
-.description span {
+.descriptioncart span {
   display: block;
   font-size: 14px;
   color: #43484d;
   font-weight: 400;
 }
 
-.description span:first-child {
+.descriptioncart span:first-child {
   margin-bottom: 5px;
 }
-.description span:last-child {
+.descriptioncart span:last-child {
   font-weight: 300;
   margin-top: 8px;
   color: #86939e;
 }
 
-.quantity {
+.quantitycart {
   padding-top: 20px;
   margin-right: 60px;
 }
-.quantity input {
+.quantitycart input {
   -webkit-appearance: none;
   border: none;
   text-align: center;
@@ -537,10 +518,10 @@ input:focus {
     flex-wrap: wrap;
     justify-content: center;
   }
-  .image img {
+  .imagecart img {
     width: 1%;
   }
-  .image,
+  .imagecart,
   .quantity,
   .description {
     width: 1%;

@@ -35,6 +35,7 @@ class UnconnectedLoginSignup extends Component {
     let body = await response.text();
     console.log("/login response", body);
     body = JSON.parse(body);
+
     if (!body.success) {
       alert("login failed");
       return;

@@ -28,7 +28,22 @@ class UnconnectedHeader extends Component {
     }
     return <Redirect to="/Shop" />;
   };
-
+  updateCart = () => {
+    if (this.props.cart === 0) {
+      return (
+        <Link to="/CartItem" className="headerforms">
+          {" "}
+          My Cart{" "}
+        </Link>
+      );
+    }
+    return (
+      <Link to="/CartItem" className="headerforms">
+        {" "}
+        My Cart ({this.props.cart})
+      </Link>
+    );
+  };
   render = () => {
     return (
       <div>
@@ -57,10 +72,7 @@ class UnconnectedHeader extends Component {
                 Sell{" "}
               </Link>
               <div>
-                <Link to="/CartItem" className="headerforms">
-                  {" "}
-                  My Cart{" "}
-                </Link>
+                {this.updateCart()}
                 <Link to="/profile" className="headerforms">
                   {" "}
                   Profile{" "}
@@ -79,7 +91,7 @@ class UnconnectedHeader extends Component {
 }
 
 let mapStateToProps = state => {
-  return { loggedIn: state.loggedIn };
+  return { loggedIn: state.loggedIn, cart: state.cart.length };
 };
 
 let Header = connect(mapStateToProps)(UnconnectedHeader);

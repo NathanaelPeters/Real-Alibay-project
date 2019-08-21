@@ -43,15 +43,15 @@ class CartItem extends Component {
             <span class="delete-btn" />
           </div>
 
-          <div class="image" height="100px">
+          <div class="imagecart">
             <img src={image} alt="" height="100px" />
           </div>
 
-          <div class="description">
+          <div class="descriptioncart">
             <div>{description}</div>
           </div>
 
-          <div class="quantity">
+          <div class="quantitycart">
             <button
               class="plus-btn"
               type="button"

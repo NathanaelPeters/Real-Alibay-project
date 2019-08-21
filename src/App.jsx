@@ -1,20 +1,15 @@
 import React, { Component } from "react";
 import Frontpage from "./Frontpage.jsx";
-import {
-  BrowserRouter,
-  Route
-} from "react-router-dom/cjs/react-router-dom.min";
+import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import AddItem from "./AddItem.jsx";
 import Profile from "./Profile.jsx";
 import Orders from "./Orders.jsx";
 import Search from "./Search.jsx";
-import Pay from "./Payment.jsx";
 import Details from "./details.jsx";
 import LoginSignup from "./LoginSignupForm.jsx";
 import SearchResults from "./SearchResults.jsx";
 import SellerProfile from "./SellerProfile.jsx";
-import { Link } from "react-router-dom";
 import CartTotal from "./CartTotal.jsx";
 
 class UnconnectedApp extends Component {

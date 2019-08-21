@@ -59,14 +59,19 @@ class UnconnectedSearch extends Component {
       </div>
     );
     return (
-      <div class="searchBox">
-        <input
-          type="text"
-          name="search"
-          placeholder="Search.."
-          onChange={this.handleQuery}
-          value={this.props.query}
-        />
+      <div className="box">
+        <div className="container-1">
+          <span className="icon">
+            <i className="fa fa-search" />
+          </span>
+          <input
+            type="search"
+            id="search"
+            placeholder="Search..."
+            onChange={this.handleQuery}
+            value={this.props.query}
+          />
+        </div>
       </div>
     );
   };
