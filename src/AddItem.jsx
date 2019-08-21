@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 class UnconnectedAddItem extends Component {
@@ -63,6 +63,8 @@ class UnconnectedAddItem extends Component {
       type: "add-item",
       item: newItem.newItem
     });
+    alert("Your item has been added!!");
+    this.props.routerData.push("/Shop");
   };
   render = () => {
     return (

@@ -35,6 +35,10 @@ let reducer = (state, action) => {
       })
     };
   }
+  if (action.type === "empty-cart") {
+    console.log("emptied");
+    return { ...state, cart: [] };
+  }
   if (action.type === "select-category") {
     // if should be included, add to the array if not there
     if (action.include && !state.categories.includes(action.category)) {

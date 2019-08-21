@@ -3,15 +3,28 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Profile extends Component {
-  // handleProfile = () => {
-  //   return;
+  // handleProfilePic = () => {
+
+  //   event.preventDefault();
+  //   let fetcheddata = await fetch("/profilePic", {
+  //     method: "POST",
+  //     body: data,
+  //     credentials: "include"
+  //   });
+  //   let newPic = await fetcheddata.text();
+  //   newPic = JSON.parse(newPic);
+
   // };
   render = () => {
-    console.log("THIS IS WOKRING");
     return (
       <div className="profile">
         <div>
           <img src="../uploads/unknown-pic.jpg" height="300px" />
+        </div>
+        <div>
+          <button onClick={this.handleProfilePic}>
+            Change profile picture
+          </button>
         </div>
         <div>
           <div>Username: {this.props.username}</div>

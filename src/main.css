@@ -165,10 +165,10 @@ h2 {
 }
 body {
   background: #d6252c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #d6252c, #8dc26f);
-  background: -moz-linear-gradient(right, #d6252c, #8dc26f);
-  background: -o-linear-gradient(right, #d6252c, #8dc26f);
-  background: linear-gradient(to left, #d6252c, #8dc26f);
+  background: -webkit-linear-gradient(right, #2699fb, #ffffff);
+  background: -moz-linear-gradient(right, #2699fb, #ffffff);
+  background: -o-linear-gradient(right, #2699fb, #ffffff);
+  background: linear-gradient(to left, #2699fb, #ffffff);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

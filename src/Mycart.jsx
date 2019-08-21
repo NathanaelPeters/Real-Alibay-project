@@ -4,6 +4,14 @@ import { items } from "./Data.js";
 import { Link } from "react-router-dom";
 import { Pay } from "./payment.jsx";
 class Mycart extends Component {
+  removeItem() {
+    let item = {
+      username: this.props.username,
+      ...this.props.item
+    };
+    console.log("item", item);
+    this.props.dispatch({ type: "remove-item", item: item });
+  }
   render() {
     return (
       <div>
@@ -44,4 +52,3 @@ class Mycart extends Component {
   }
 }
 export default Mycart;
-

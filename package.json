@@ -36,6 +36,7 @@
     "react-stripe-checkout": "^2.6.3",
     "redux": "^4.0.4",
     "shelljs": "^0.8.3",
+    "stripe-checkout": "^1.0.9",
     "webpack-inject-plugin": "^1.5.0",
     "ws": "^7.0.0"
   }

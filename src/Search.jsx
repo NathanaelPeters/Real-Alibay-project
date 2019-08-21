@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
-import items from "./data";
+import items from "./Data.js";
 import { Link } from "react-router-dom";
 
 class UnconnectedSearch extends Component {

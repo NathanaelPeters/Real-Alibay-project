@@ -8,14 +8,15 @@ import { connect } from "react-redux";
 import AddItem from "./AddItem.jsx";
 import Profile from "./Profile.jsx";
 import Orders from "./Orders.jsx";
-import CartItem from "./CartItem.jsx";
-import Body from "./Body.jsx";
 import { initialItems, initialProfile, initialCart } from "./Data.js";
 import Search from "./Search.jsx";
-import { Pay } from "./Payment.jsx";
+import Pay from "./Payment.jsx";
 import Details from "./details.jsx";
 import LoginSignup from "./LoginSignupForm.jsx";
 import SearchResults from "./SearchResults.jsx";
+import SellerProfile from "./SellerProfile.jsx";
+import { Link } from "react-router-dom";
+import CartTotal from "./CartTotal.jsx";
 
 class UnconnectedApp extends Component {
   constructor() {
@@ -45,13 +46,11 @@ class UnconnectedApp extends Component {
     return <Details item={item} />;
   };
 
-  renderCart = () => {
+  renderCart = routerData => {
     return (
       <div>
         <h1>Your cart</h1>
-        {this.props.cart.map(item => (
-          <CartItem item={item} itemID={item.id} />
-        ))}
+        <CartTotal cart={this.props.cart} routerData={routerData.history} />
       </div>
     );
   };
@@ -65,7 +64,17 @@ class UnconnectedApp extends Component {
         />
         <Route
           path="/AddItem"
-          render={() => <AddItem username={this.props.username} />}
+          render={routerData => (
+            <AddItem
+              username={this.props.username}
+              routerData={routerData.history}
+            />
+          )}
+        />
+        <Route
+          exact={true}
+          path="/LoginSignup"
+          render={() => <LoginSignup />}
         />
         <Route
           path="/Orders"
@@ -77,15 +86,10 @@ class UnconnectedApp extends Component {
             <SellerProfile sellerID={routerData.match.params.id} />
           )}
         />
-        <Route exact={true} path="/Mycart" render={this.renderCart} />
-        <Route exact={true} path="/" render={this.searchResults} />
+        <Route exact={true} path="/CartItem" render={this.renderCart} />
+        <Route exact={true} path="/Shop" render={this.searchResults} />
         <Route exact={true} path="/Details/:id" render={this.renderDetails} />
 
-        <Route
-          exact={true}
-          path="/Payment"
-          render={() => <Pay username={this.props.username} />}
-        />
         <Route
           exact={true}
           path="/LoginSignup"
@@ -94,7 +98,12 @@ class UnconnectedApp extends Component {
         <Route
           exact={true}
           path="/Payment"
-          redner={() => <Pay username={this.state.username} />}
+          render={routerData => (
+            <Pay
+              username={this.state.username}
+              routerData={routerData.history}
+            />
+          )}
         />
       </BrowserRouter>
     );

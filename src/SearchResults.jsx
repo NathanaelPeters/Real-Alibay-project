@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
-import initialItems from "./data.js";
+import initialItems from "./Data.js";
 import { Link } from "react-router-dom";
 
 class UnconnectedSearchResults extends Component {
@@ -29,7 +29,9 @@ class UnconnectedSearchResults extends Component {
       })
       .filter(item => {
         return (
-          item.description.toLowerCase().includes(this.props.query) &&
+          item.description
+            .toLowerCase()
+            .includes(this.props.query.toLowerCase()) &&
           item.price >= this.props.minPrice &&
           item.price <= this.props.maxPrice
         );

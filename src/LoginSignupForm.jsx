@@ -91,7 +91,7 @@ class UnconnectedLoginSignup extends Component {
   };
   render = () => {
     if (this.props.login === true) {
-      return <Redirect to="/" username={this.state.username} />;
+      return <Redirect to="/Shop" username={this.state.username} />;
     }
     console.log("username:", this.state.username);
     if (this.props.login === false) {

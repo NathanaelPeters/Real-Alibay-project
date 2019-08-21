@@ -5,7 +5,7 @@ import Profile from "./Profile.jsx";
 import CartItem from "./CartItem.jsx";
 import Orders from "./Orders.jsx";
 import AddItem from "./AddItem.jsx";
-import LoginSignup from "./LoginSignupForm.jsx"
+import LoginSignup from "./LoginSignupForm.jsx";
 import Search from "./Search.jsx";
 
 class UnconnectedHeader extends Component {
@@ -35,7 +35,7 @@ class UnconnectedHeader extends Component {
         {this.props.loggedIn === false ? (
           <div className="header">
             <div>
-              <Link to="/">
+              <Link to="/Shop">
                 <img src="../uploads/decodelogo.png" height="100px" />
               </Link>
             </div>
@@ -47,7 +47,7 @@ class UnconnectedHeader extends Component {
           <div>
             <div className="header">
               <div>
-                <Link to="/">
+                <Link to="/Shop">
                   <img src="../uploads/decodelogo.png" height="100px" />
                 </Link>
               </div>
@@ -61,7 +61,7 @@ class UnconnectedHeader extends Component {
                   {" "}
                   Orders{" "}
                 </Link>
-                <Link to="/Mycart" className="headerforms">
+                <Link to="/CartItem" className="headerforms">
                   {" "}
                   My Cart{" "}
                 </Link>

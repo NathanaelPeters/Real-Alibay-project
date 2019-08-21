@@ -2,13 +2,13 @@ let initialItems = [
   {
     itemName: "Sweatpants",
     description: "Comfortable sweatpants",
-    price: 10,
-    image: "/grey.png",
-    id: "asewq",
-    sellerId: "ewio",
     group: "men",
     category: "bottom",
-    seller: "Jack Frost"
+    seller: "Jack Frost",
+    id: "asewq",
+    description: "great sweats",
+    price: 10,
+    image: "/grey.png"
   },
   {
     itemName: "T-Shirt",

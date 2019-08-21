@@ -9,7 +9,7 @@ reloadMagic(app);
 let cookieParser = require("cookie-parser");
 app.use(cookieParser());
 // let sha1 = require("sha1");
-app.use("/", express.static("build"));
+app.use("/", express.static("build/dist"));
 app.use("/uploads", express.static("uploads"));
 let dbo = undefined;
 let url =
@@ -22,7 +22,7 @@ reloadMagic(app);
 let sessions = {};
 // changed items to an array
 let items = [];
-
+let profilePics = [];
 let generateId = () => {
   return "" + Math.floor(Math.random() * 100000000);
 };
@@ -71,7 +71,10 @@ app.post("/login", upload.none(), (req, res) => {
 app.post("/logout", upload.none(), (req, res) => {
   res.send(JSON.stringify({ success: false }));
 });
-
+app.post("/save-stripe-token", upload.none(), (req, res) => {
+  console.log("payment", req.body);
+  res.send(JSON.stringify({ success: true }));
+});
 app.post("/addItem", upload.single("thepic"), (req, res) => {
   let sessionId = req.cookies.sid;
   let username = sessions[sessionId];
@@ -92,6 +95,19 @@ app.post("/addItem", upload.single("thepic"), (req, res) => {
   };
   res.send(JSON.stringify({ newItem }));
 });
+
+// app.post("/profilePic", upload.single("profilepic"), (req, res) => {
+//   let sessionId = req.cookies.sid;
+//   let username = sessions[sessionId];
+//   let file = req.file;
+//   let frontendPath = "/uploads/" + file.filename;
+
+//   let newPic = {
+//     image: frontendPath
+//   };
+//   profilePics = items.concat(newPic);
+//   res.send(JSON.stringify({ newPic }));
+// });
 
 app.all("/*", (req, res, next) => {
   // needed for react router
