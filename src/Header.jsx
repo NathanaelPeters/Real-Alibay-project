@@ -44,14 +44,14 @@ class UnconnectedHeader extends Component {
             </Link>
           </div>
         ) : (
-          <div>
+          <div className="header">
             <div className="header">
               <div>
                 <Link to="/Shop">
                   <img src="../uploads/decodelogo.png" height="100px" />
                 </Link>
               </div>
-              <div>Good morning {this.props.username}! </div>
+              <div>Hello, {this.props.username}! </div>
               <Link to="/addItem" className="headerforms">
                 {" "}
                 Sell{" "}

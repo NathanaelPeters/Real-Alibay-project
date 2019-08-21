@@ -8,6 +8,7 @@ class UnconnectedSearchResults extends Component {
     return () => {
       item = {
         username: this.props.username,
+        qty: 1,
         ...item
       };
       this.props.dispatch({
@@ -37,14 +38,14 @@ class UnconnectedSearchResults extends Component {
         );
       });
     return (
-      <div>
+      <div className="cardgrid">
         {results.map(item => {
           return (
             <div className="card center" key={item.id}>
               <img
                 className="imagelocation"
-                height="82px"
-                width="61 px"
+                height="180px"
+                width="160px"
                 src={item.image}
               />
               <div>
@@ -54,10 +55,16 @@ class UnconnectedSearchResults extends Component {
                   <Link className="button1" to={"/Details/" + item.id}>
                     More Details
                   </Link>
+
                   <button
-                    className="button"
+                    className="addtocart"
                     onClick={this.handleCartButton(item)}
                   >
+                    <link
+                      rel="stylesheet"
+                      href="https://fontawesome.com/icons/shopping-cart?style=solid"
+                    />
+                    <i class="fas fa-shopping-cart" />
                     Add to cart
                   </button>
                 </div>

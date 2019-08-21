@@ -1,7 +1,5 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
-import items from "./Data.js";
-import { Link } from "react-router-dom";
 
 class UnconnectedSearch extends Component {
   handleQuery = evt => {
@@ -61,86 +59,14 @@ class UnconnectedSearch extends Component {
       </div>
     );
     return (
-      <div className="searchbox" height="100px">
-        <div>
-          <div>
-            Search query
-            <input
-              type="text"
-              onChange={this.handleQuery}
-              value={this.props.query}
-            />
-          </div>
-        </div>
-        <div>
-          <div>
-            Minimum price
-            <input
-              type="text"
-              onChange={this.handleMinimumPrice}
-              value={this.props.minPrice.toString()}
-            />
-          </div>
-        </div>
-        <div>
-          <div>
-            Maximum price
-            <input
-              type="text"
-              onChange={this.handleMaximumPrice}
-              value={this.props.maxPrice.toString()}
-            />
-          </div>
-        </div>
-        <div>
-          <div>
-            <div>
-              <input
-                type="radio"
-                name="group"
-                value="men"
-                onChange={this.handleSelectGroup}
-              />{" "}
-              Men's
-              {this.props.group === "men" ? submenu : null}
-            </div>
-          </div>
-          <div>
-            <div>
-              <input
-                type="radio"
-                name="group"
-                value="women"
-                onChange={this.handleSelectGroup}
-              />{" "}
-              Women's
-              {this.props.group === "women" ? submenu : null}
-            </div>
-          </div>
-          <div>
-            <div>
-              <input
-                type="radio"
-                name="group"
-                value="children"
-                onChange={this.handleSelectGroup}
-              />
-              Children's
-              {this.props.group === "children" ? submenu : null}
-            </div>
-          </div>
-          <div>
-            <div>
-              <input
-                type="radio"
-                name="group"
-                value=""
-                onChange={this.handleSelectGroup}
-              />
-              All
-            </div>
-          </div>
-        </div>
+      <div class="searchBox">
+        <input
+          type="text"
+          name="search"
+          placeholder="Search.."
+          onChange={this.handleQuery}
+          value={this.props.query}
+        />
       </div>
     );
   };

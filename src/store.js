@@ -15,6 +15,9 @@ let reducer = (state, action) => {
   if (action.type === "query") {
     return { ...state, searchQuery: action.q };
   }
+  if (action.type === "total") {
+    return { ...state, searchQuery: action.q };
+  }
   if (action.type === "minimum-price") {
     return { ...state, min: action.price };
   }

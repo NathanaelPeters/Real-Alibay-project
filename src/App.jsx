@@ -8,7 +8,6 @@ import { connect } from "react-redux";
 import AddItem from "./AddItem.jsx";
 import Profile from "./Profile.jsx";
 import Orders from "./Orders.jsx";
-import { initialItems, initialProfile, initialCart } from "./Data.js";
 import Search from "./Search.jsx";
 import Pay from "./Payment.jsx";
 import Details from "./details.jsx";
@@ -49,8 +48,8 @@ class UnconnectedApp extends Component {
   renderCart = routerData => {
     return (
       <div>
-        <h1>Your cart</h1>
-        <CartTotal cart={this.props.cart} routerData={routerData} />
+        <div class="title">Your Cart</div>
+        <CartTotal cart={this.props.cart} routerData={routerData.history} />
       </div>
     );
   };

@@ -8,6 +8,7 @@ class UnconnectedDetails extends Component {
   handleCartButton = () => {
     let item = {
       username: this.props.username,
+      qty: 1,
       ...this.props.item
     };
     this.props.dispatch({

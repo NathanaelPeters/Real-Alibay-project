@@ -5,18 +5,23 @@ body {
 
 .headerforms {
   font-family: "Dosis", sans-serif;
+  text-decoration: none;
   text-transform: uppercase;
   outline: 0;
   background: #2699fb;
   width: 100px;
   border: 10;
   padding: 15px;
-  color: #ffffff;
+  color: black;
   font-size: 14px;
   left: 10px;
   top: 11px;
   background-position: -10px -340px;
   margin-left: 15px;
+}
+.headerforms:hover {
+  color: black;
+  background-color: #bce0fd;
 }
 .additemform {
   display: block;
@@ -37,7 +42,7 @@ body {
 }
 .additem h1,
 h2 {
-  font-family: "Roboto", sans-serif;
+  font-family: "dosis", sans-serif;
   align-items: center;
 }
 
@@ -72,7 +77,7 @@ h2 {
   right: 200px;
   background-color: white;
 }
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url(https://fonts.googleapis.com/css?family=Dosis&display=swap);
 
 .login-page {
   width: 360px;
@@ -90,7 +95,7 @@ h2 {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .form input {
-  font-family: "Roboto", sans-serif;
+  font-family: "Dosis", sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -101,7 +106,7 @@ h2 {
   font-size: 14px;
 }
 .form button {
-  font-family: "Roboto", sans-serif;
+  font-family: "Dosis", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #2699fb;
@@ -165,22 +170,34 @@ h2 {
 }
 body {
   background: #2699fb; /* fallback for old browsers */
-  font-family: "Roboto", sans-serif;
+  background: #d6252c; /* fallback for old browsers */
+  background: #f1f9ff;
+  font-family: "Dosis", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.cardgrid {
+  display: flex;
+  flex-wrap: wrap;
+  border-spacing: 5px;
+  justify-content: center;
 }
 
 .card {
   display: inline-block;
   position: relative;
-  margin: 5%;
-  float: none;
+  border-radius: 9px;
+  margin: 3%;
+  height: 300px;
   width: 20%;
-  background-color: lightgrey;
   font-size: 14pt;
   font-style: initial;
   text-align: center;
   left: 20px;
+  box-sizing: border-box;
+  background: #2699fb;
+  padding: 20px;
+  transition: transform 1.5s;
 }
 .App-header {
   background-color: #222;
@@ -188,30 +205,30 @@ body {
   padding: 20px;
   color: white;
 }
-.card {
-  border-radius: 25px;
-  background: blue;
-  padding: 20px;
-  width: 200px;
-  height: 180px;
-  transition: transform 1.5s;
-  float: right;
+.cardgrid .button {
+  justify-content: bottom;
 }
+
 .button {
   position: relative;
-  top: 70%;
+  top: 10%;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100%;
+  height: 10%;
   width: 100%;
   opacity: 0;
   transition: 0.5s ease;
+
   background-color: white transparent;
   border-radius: 25px;
 }
 .card:hover .button {
   opacity: 1;
+}
+
+.checkout {
+  left: 100%;
 }
 
 .cart {
@@ -220,6 +237,31 @@ body {
   padding: 8px;
 }
 .button1 {
+  background-color: DodgerBlue;
+  text-decoration: none;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  font-size: 10px;
+  cursor: pointer;
+}
+.button1:hover {
+  background: lightblue;
+}
+
+.addtocart {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.addtocart:hover {
+  background-color: lightblue;
+}
+.buttonprof {
   text-decoration: none;
   width: 90px;
   right: 20px;
@@ -239,20 +281,17 @@ body {
   padding: 45px;
   margin: auto;
 }
-.remove {
-  color: #494949 !important;
-  text-decoration: none;
-  background: #ffffff;
-  padding: 5px;
-  border: 4px solid #494949 !important;
-  display: inline-block;
-  transition: all 0.4s ease 0s;
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  font-size: 10px;
+  cursor: pointer;
 }
-.remove:hover {
-  color: #ffffff !important;
-  background: #f6b93b;
-  border-color: #f6b93b !important;
-  transition: all 0.4s ease 0s;
+
+.btn:hover {
+  background-color: red;
 }
 .description {
   text-align: center;
@@ -285,4 +324,253 @@ body {
 
 .titleImage {
   display: flex;
+}
+.searchbox {
+  position: fixed;
+  bottom: 88%;
+  left: 8%;
+}
+.inputtxt[type="text"] {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+.inputtxt[type="text"]:focus {
+  width: 100%;
+}
+/* Style the navbar */
+.searchbox {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Navbar links */
+.searchbox a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+
+.shopping-cart {
+  width: 750px;
+  height: 423px;
+  margin: 80px auto;
+  background: #ffffff;
+  box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  height: 60px;
+  border-bottom: 1px solid #e1e8ee;
+  padding: 20px 30px;
+  color: #5e6977;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.item {
+  padding: 20px 30px;
+  height: 120px;
+  display: flex;
+}
+
+.item:nth-child(3) {
+  border-top: 1px solid #e1e8ee;
+  border-bottom: 1px solid #e1e8ee;
+}
+
+.buttons {
+  position: relative;
+  padding-top: 30px;
+  margin-right: 60px;
+}
+.delete-btn,
+.like-btn {
+  display: inline-block;
+  cursor: pointer;
+}
+.delete-btn {
+  width: 18px;
+  height: 17px;
+  background: url(&quot;delete-icn.svg&quot;) no-repeat center;
+}
+
+.like-btn {
+  position: absolute;
+  top: 9px;
+  left: 15px;
+  width: 60px;
+  height: 60px;
+  background-size: 2900%;
+  background-repeat: no-repeat;
+}
+
+.is-active {
+  animation-name: animate;
+  animation-duration: 0.8s;
+  animation-iteration-count: 1;
+  animation-timing-function: steps(28);
+  animation-fill-mode: forwards;
+}
+
+@keyframes animate {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+.image {
+  margin-right: 50px;
+  height: 100px;
+}
+
+.description {
+  padding-top: 10px;
+  margin-right: 60px;
+  width: 115px;
+}
+
+.description span {
+  display: block;
+  font-size: 14px;
+  color: #43484d;
+  font-weight: 400;
+}
+
+.description span:first-child {
+  margin-bottom: 5px;
+}
+.description span:last-child {
+  font-weight: 300;
+  margin-top: 8px;
+  color: #86939e;
+}
+
+.quantity {
+  padding-top: 20px;
+  margin-right: 60px;
+}
+.quantity input {
+  -webkit-appearance: none;
+  border: none;
+  text-align: center;
+  width: 32px;
+  font-size: 16px;
+  color: #43484d;
+  font-weight: 300;
+}
+
+button[class*="btn"] {
+  width: 30px;
+  height: 30px;
+  background-color: #e1e8ee;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.minus-btn img {
+  margin-bottom: 3px;
+}
+.plus-btn img {
+  margin-top: 2px;
+}
+
+button:focus,
+input:focus {
+  outline: 0;
+}
+.total-price {
+  width: 83px;
+  padding-top: 27px;
+  text-align: center;
+  font-size: 16px;
+  color: #43484d;
+  font-weight: 300;
+}
+
+@media (max-width: 800px) {
+  .shopping-cart {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  .item {
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .image img {
+    width: 1%;
+  }
+  .image,
+  .quantity,
+  .description {
+    width: 1%;
+    text-align: center;
+    margin: 6px 0;
+  }
+  .buttons {
+    margin-right: 20px;
+  }
+}
+
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: black;
+  padding: 8px 2px;
+  font-size: 10px;
+  cursor: pointer;
+  height: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn:hover {
+  background-color: red;
+}
+
+.btn1 {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }

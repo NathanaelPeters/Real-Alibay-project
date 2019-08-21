@@ -7,56 +7,78 @@ class CartItem extends Component {
     super(props);
     this.state = {
       price: this.props.item.price,
-      qty: 1
+      qty: 1,
+      total: this.props.item.price
     };
   }
-
-  handleSelectChange = event => {
-    let oldPrice = this.state.price;
-    let newPrice = this.props.item.price * event.target.value;
-    let priceDiff = newPrice - oldPrice;
-    console.log("select event", event.target.value);
-    this.setState(
-      {
-        price: this.props.item.price * event.target.value,
-        qty: event.target.value
-      },
-      () => {
-        this.props.updateTotal(priceDiff);
-      }
-    );
+  handleminus = event => {
+    if (this.state.qty < 1) this.state.qty = 0;
+    this.setState({
+      qty: this.state.qty - 1,
+      total: this.props.item.price * this.state.qty
+    });
+    console.log(this.state.qty);
+    this.props.updateTotal(this.state.total);
+  };
+  handleplus = event => {
+    this.setState({
+      qty: this.state.qty + 1,
+      total: this.props.item.price * this.state.qty
+    });
+    this.props.updateTotal(this.state.total);
+    console.log(this.state);
   };
   removeItem = () => {
     console.log("cart item", this.props.itemID);
     this.props.dispatch({ type: "remove-item", item: this.props.itemID });
-    this.props.updateTotal(-this.state.price);
+    this.props.updateTotal(-this.state.total);
     return;
   };
   render() {
-    let { price, description, image, id } = this.props.item;
-
+    let { price, description, image, id, itemName } = this.props.item;
     return (
       <div>
-        <div className="cart">
-          <div className="product">
-            <img className="image" height="82px" width="61 px" src={image} />
-            <div>
-              <div className="description">{description}</div>
-              <div className="price">{"$" + this.state.price}</div>
-              <button className="remove" onClick={this.removeItem}>
-                Remove
-              </button>
-              <select onChange={this.handleSelectChange} className="dropdown">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-              </select>
-            </div>
+        <div class="item">
+          <div class="buttons">
+            <span class="delete-btn" />
           </div>
+
+          <div class="image" height="100px">
+            <img src={image} alt="" height="100px" />
+          </div>
+
+          <div class="description">
+            <div>{description}</div>
+          </div>
+
+          <div class="quantity">
+            <button
+              class="plus-btn"
+              type="button"
+              name="button"
+              onClick={this.handleplus}
+            >
+              <img src="plus.svg" alt="" />
+            </button>
+            <input type="text" name="name" value={this.state.qty} />
+            <button
+              class="minus-btn"
+              type="button"
+              name="button"
+              onClick={this.handleminus}
+            >
+              <img src="minus.svg" alt="" />
+            </button>
+          </div>
+          <div class="total-price">${this.state.price}</div>
+          <button class="btn" onClick={this.removeItem} height="200px">
+            <link
+              class="btn1"
+              rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+            />
+            <i class="fa fa-trash" />
+          </button>
         </div>
       </div>
     );

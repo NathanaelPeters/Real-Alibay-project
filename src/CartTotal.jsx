@@ -31,7 +31,11 @@ export default class CartTotal extends Component {
       this.state.total === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <p> Total: {"$" + this.state.total}</p>
+        <p className="details">
+          {" "}
+          Total: {"$" + this.state.total}{" "}
+          <Pay total={this.state.total} className="checkout" />
+        </p>
       );
     return (
       <div>
@@ -44,12 +48,7 @@ export default class CartTotal extends Component {
           />
         ))}
         <div>{displayTotal}</div>
-        <Pay
-          total={this.state.total}
-          className="checkout"
-          username={this.state.username}
-          routerData={this.props.routerData.history}
-        />
+
         {/* <img
           class="active"
           src="https://thumbs.gfycat.com/GratefulEdibleGrayreefshark.webp"

@@ -6,7 +6,8 @@ let initialItems = [
     category: "bottom",
     seller: "Jack Frost",
     id: "asewq",
-
+    description:
+      "great sweats, they kinda suck and they're slightly soiled. But who doesn't love a little bit of poop?",
     price: 10,
     image: "/grey.png",
     quantity: 200
