@@ -17,7 +17,7 @@ let url =
 MongoClient.connect(url, { useNewUrlParser: true }, (err, db) => {
   dbo = db.db("alibay-login");
 });
-// Nate is great
+
 reloadMagic(app);
 let sessions = {};
 // changed items to an array
