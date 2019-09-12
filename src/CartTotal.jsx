@@ -48,11 +48,6 @@ export default class CartTotal extends Component {
           />
         ))}
         <div>{displayTotal}</div>
-
-        {/* <img
-          class="active"
-          src="https://thumbs.gfycat.com/GratefulEdibleGrayreefshark.webp"
-        /> */}
       </div>
     );
   }
