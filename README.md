@@ -1,5 +1,18 @@
-To start the server, run `nodemon server.js`
+# Alibay Project
+# Summary
+A marketplace website which allows users to buy and sell items from other members.
 
-Modify the `server.js` file to add endpoints
+Demo: https://www.youtube.com/watch?v=7OzJadbTygM
 
-The frontend code goes in the `/src` directory
+# Technologies
+Front-end : Javascript, React, Redux, CSS, HTML.
+
+Back-end : Node.js, Express, MongoDB.
+
+# How to run
+Install Dependencies:
+npm install
+
+Start Server with Nodemon:
+npm start
+
